@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Ad</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Poppins', 'Roboto', Arial, sans-serif;
+            background: #fff;
+        }
+        .hero {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .hero-headline {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+        @media (max-width: 600px) {
+            .hero-headline {
+                font-size: 28px;
+            }
+        }
+        .hero-subheadline {
+            font-size: 20px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+            color: #444;
+        }
+        .hero-video {
+            width: 100%;
+            max-width: 560px;
+            aspect-ratio: 16 / 9;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .hero-video iframe, .hero-video video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .hero-video img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+        }
+        .cta-button {
+            background: #0052cc;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px 48px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(229,57,53,0.08);
+        }
+        .cta-button:hover {
+            background: #b71c1c;
+        }
+        .pain-section {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 0;
+            background: #faf9f8;
+        }
+        .pain-content {
+            max-width: 700px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .pain-image-wrapper {
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 24px;
+        }
+        .pain-image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .pain-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .pain-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            width: 100%;
+        }
+        .pain-list li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            opacity: 0;
+            transform: translateX(-25px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .pain-list li:last-child {
+            margin-bottom: 0;
+        }
+        .pain-icon {
+            font-size: 22px;
+            color: #0052cc;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .pain-closing {
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 1.8s ease-in;
+        }
+        @media (max-width: 600px) {
+            .pain-content {
+                align-items: flex-start;
+            }
+            .pain-title, .pain-closing {
+                text-align: left;
+            }
+        }
+        .pain-content.is-visible .pain-list li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .pain-content.is-visible .pain-closing {
+            font-size: 22px;
+            font-weight: bold;
+            opacity: 1;
+            transition-delay: 1.2s;
+        }
+        .pain-list li:nth-child(1) { transition-delay: 0.4s; }
+        .pain-list li:nth-child(2) { transition-delay: 0.8s; }
+        .pain-list li:nth-child(3) { transition-delay: 1.2s; }
+        .pain-list li:nth-child(4) { transition-delay: 1.6s; }
+        .what-section {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 0;
+            background: #F9F9F9;
+        }
+        .what-content {
+            max-width: 800px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+            align-items: flex-start;
+        }
+        .what-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 28px;
+        }
+        .what-intro {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #444;
+        }
+        .what-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .what-image-wrapper {
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 24px;
+            align-self: center;
+            margin: 24px 0;
+        }
+        .what-image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .what-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            width: 100%;
+            text-align: left;
+            align-items: flex-start;
+            margin-left: 0;
+        }
+        .what-list li {
+            font-size: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .what-list li:last-child {
+            margin-bottom: 0;
+        }
+        .what-icon {
+            font-size: 22px;
+            color: #43a047;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .what-closing {
+            font-size: 22px;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .what-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .who-section {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 0 80px 0;
+            background: #f6f7fa;
+            border-top: 1px solid #ececec;
+        }
+        .who-content {
+            max-width: 800px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .who-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .who-intro {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 28px;
+            color: #444;
+        }
+        .who-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .who-image-wrapper img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .who-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px 0;
+            width: 100%;
+        }
+        .who-list li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .who-list li:last-child {
+            margin-bottom: 0;
+        }
+        .who-icon {
+            font-size: 20px;
+            color: #90caf9;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .who-wrapup {
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .cta-section {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #FFF7F6;
+            padding: 90px 0 90px 0;
+        }
+        .cta-headline {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+        .cta-support {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #444;
+        }
+        .cta-section .cta-button {
+            background: #0052cc;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(229,57,53,0.08);
+            display: inline-block;
+        }
+        .cta-section .cta-button:hover {
+            background: #b71c1c;
+        }
+        @media (max-width: 600px) {
+            .cta-headline, .cta-support {
+                text-align: left;
+            }
+        }
+        /* --- Testimonial Section Styles --- */
+        .testimonial-section {
+            background: #fff;
+            padding: 80px 0;
+            border-top: 1px solid #eee;
+        }
+        .testimonial-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .testimonial-photo {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #eee;
+            display: block;
+            margin: 0 auto 18px auto;
+        }
+        .testimonial-quote {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: #333;
+            text-align: center;
+        }
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 2px;
+            color: #222;
+        }
+        .author-business {
+            font-size: 16px;
+            color: #0052cc;
+        }
+        @media (max-width: 900px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .about-section {
+            background: #f6f7fa;
+            padding: 80px 0;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 40px;
+        }
+        .about-image-wrapper {
+            flex: 1;
+        }
+        .about-image-wrapper img {
+            width: 100%;
+            border-radius: 12px;
+        }
+        .about-text-wrapper {
+            flex: 2;
+            text-align: left;
+        }
+        .about-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .about-text-wrapper p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image-wrapper {
+                margin-bottom: 40px;
+            }
+        }
+        .pain-icon svg, .what-icon svg {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .pain-icon svg {
+            color: #0052cc;
+            fill: #0052cc;
+        }
+        .what-icon svg {
+            color: #43a047;
+            fill: #43a047;
+        }
+        .data-section {
+            background: #f6f7fa;
+            padding: 80px 0;
+        }
+        .data-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .data-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .metric-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .metric-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #222;
+        }
+        .metric-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #0052cc;
+            margin-bottom: 10px;
+        }
+        .metric-description {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+        }
+        .data-source {
+            font-size: 18px;
+            text-align: center;
+            color: #000;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+        @media (max-width: 900px) {
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* --- Main Header Styles --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #0052cc;
+            padding: 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            z-index: 1000;
+            transition: padding 0.3s;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .contact-info a {
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+            opacity: 0.8;
+        }
+        /* --- Main Footer Styles --- */
+        .main-footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 60px 0;
+            font-size: 16px;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-col p, .footer-col ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        /* --- Modal Styles --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90vw;
+            padding: 40px 30px 30px 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .modal-close:hover {
+            color: #E53935;
+        }
+        /* --- Fade-in on Scroll Animation --- */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pain-alone {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .pain-better-way {
+            color: #0052cc;
+            font-weight: bold;
+        }
+        .hidden-section {
+            opacity: 0;
+            pointer-events: none;
+        }
+        /* --- Three Pillars Call Section Styles --- */
+        .detailed-call-section {
+            background: #fff;
+            padding: 80px 0 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .detailed-call-content {
+            max-width: 900px;
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 100%;
+        }
+        .pillar-card {
+            background: #f7f9fc;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 36px 28px 32px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .pillar-card:hover {
+            box-shadow: 0 6px 24px rgba(0,82,204,0.13);
+        }
+        .pillar-icon {
+            width: 54px;
+            height: 54px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e3eafc;
+            border-radius: 50%;
+        }
+        .pillar-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #0052cc;
+            stroke: #0052cc;
+        }
+        .pillar-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #222;
+        }
+        .pillar-description {
+            font-size: 17px;
+            color: #444;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+        /* --- CSS Pie Chart Styles --- */
+        .metric-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .pie-chart {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            display: inline-grid;
+            place-content: center;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            /* This line draws the pie chart circle */
+            background: conic-gradient(#0052cc calc(var(--p) * 1%), #eef0f2 0);
+        }
+
+        /* Replace .pie-chart::before with .pie-percent styles */
+        .pie-percent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            font-weight: bold;
+            color: #0052cc;
+            background: #fff;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .pain-support-line {
+            margin: 18px 0 0 0;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .pain-support-red {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .pain-support-blue {
+            color: #0052cc;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo"><img src="files/logo.png" alt="SpeedEaze Logo" style="height: 120px; width: auto; vertical-align: middle;"></div>
+            <div class="contact-info">
+                <a href="mailto:admin@speedeaze.com">admin@speedeaze.com</a>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-headline">Tired of Doing Everything Yourself?</div>
+        <div class="hero-subheadline">
+            If you're running a small business or working independently, we can help you save hours every week <br>
+            by organizing your work, helping with client follow-up, and taking repetitive tasks off your plate.
+        </div>
+        <div class="hero-video">
+            <img src="files/hero image.png">
+        </div>
+        <div class="hero-cta">
+            <button class="cta-button" onclick="window.open('https://calendly.com/axento-meeting/new-meeting?month=2025-07', '_blank')">Book a Free Call &rarr;</button>
+        </div>
+    </section>
+    <section class="pain-section">
+        <div class="pain-content fade-in-section">
+            <div class="pain-image-wrapper">
+            </div>
+            <div class="pain-support-line">
+             
+            </div>
+            <div class="pain-title">Do Any of These Sound Familiar?</div>
+            <ul class="pain-list">
+                <li><span class="pain-icon"><!-- Heroicons calendar-x-mark --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3.75 7.5h16.5M4.5 21h15a.75.75 0 0 0 .75-.75V7.5a.75.75 0 0 0-.75-.75h-15A.75.75 0 0 0 3.75 7.5v12.75c0 .414.336.75.75.75zm6-6l3-3m0 0l-3-3m3 3H9" /></svg></span>Are Clients forgetting appointments?</li>
+                <li><span class="pain-icon"><!-- Heroicons inbox --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V6.75A2.25 2.25 0 0 1 4.5 4.5h15a2.25 2.25 0 0 1 2.25 2.25v6m-19.5 0v4.5A2.25 2.25 0 0 0 4.5 21h15a2.25 2.25 0 0 0 2.25-2.25v-4.5m-19.5 0h5.25a3 3 0 0 0 6 0h5.25" /></svg></span>Too many messages to reply to?</li>
+                <li><span class="pain-icon"><!-- Heroicons clock --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a10 10 0 1 1-20 0 10 10 0 0 1 20 0z" /></svg></span>Spending hours on things you wish someone else could handle?</li>
+                <li><span class="pain-icon"><!-- Heroicons folder-x-mark (for chaos/disorganized) --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75A2.25 2.25 0 0 1 4.5 4.5h3.379a2.25 2.25 0 0 1 1.591.659l1.621 1.621a2.25 2.25 0 0 0 1.591.659h6.818a2.25 2.25 0 0 1 2.25 2.25v7.5A2.25 2.25 0 0 1 19.5 21h-15A2.25 2.25 0 0 1 2.25 18.75V6.75zm9 4.5l3 3m0 0l-3 3m3-3H9" /></svg></span>Your work feel disorganized or overwhelming?</li>
+            </ul>
+            <div class="pain-closing"><span class="pain-alone">You're not alone</span> <span class="pain-better-way">and there's a better way.</span></div>
+        </div>
+    </section>
+    <section class="what-section">
+        <div class="what-content hidden-section">
+            <div class="what-title">What We Actually Do</div>
+            <div class="what-image-wrapper">
+                <img src="files/what actualy we do.png" alt="Illustration showing business benefits">
+            </div>
+            <div class="what-list-wrapper">
+                <div class="what-intro">
+                    We'll sit down with you, look at how your business runs, and find small, smart ways to:
+                </div>
+                <ul class="what-list">
+                    <li><span class="what-icon"><!-- Heroicons clipboard-document-check --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l2.25 2.25L15 11.25m-6.75-6h9A2.25 2.25 0 0 1 19.5 7.5v9a2.25 2.25 0 0 1-2.25 2.25h-9A2.25 2.25 0 0 1 4.5 16.5v-9A2.25 2.25 0 0 1 6.75 4.5z" /></svg></span>Help you get organized</li>
+                    <li><span class="what-icon"><!-- Heroicons stopwatch --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a10 10 0 1 1-20 0 10 10 0 0 1 20 0z" /></svg></span>Save time every day</li>
+                    <li><span class="what-icon"><!-- Heroicons arrow-path (tangled to straight) --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 1 15 0m-7.5 7.5V12m0 0L9 15m3-3l3 3" /></svg></span>Make things feel less chaotic</li>
+                    <li><span class="what-icon"><!-- Heroicons face-smile --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.556 0 8.25-3.694 8.25-8.25S16.556 3.75 12 3.75 3.75 7.444 3.75 12s3.694 8.25 8.25 8.25zm-3-5.25a3.75 3.75 0 0 0 6 0" /></svg></span>Keep your clients more satisfied</li>
+                </ul>
+                <div class="what-closing"><span class="pain-support-red">No bots. No tech headaches.</span><span class="pain-support-blue"> Just smart, tailored help.</span></div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section Start -->
+    <section class="testimonial-section">
+        <div class="testimonial-content fade-in-section">
+            <div class="testimonial-title">What Our Clients Say</div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="files/sara.png" alt="Client Photo" class="testimonial-photo">
+                    <p class="testimonial-quote">"Before working with them, I was spending hours each week following up with clients, sending reminders, and trying to stay on top of everything. Now, I just focus on coaching everything else runs smoothly in the background. It honestly feels like I hired an assistant, without the cost!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-details">
+                            <p class="author-name">Jane Doe</p>
+                            <p class="author-business">Independent Life Coach</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="files/jhon.png" alt="Client Photo" class="testimonial-photo">
+                    <p class="testimonial-quote">"I didn't even know where to start when it came to organizing my bookings and customer messages. These guys made everything simple. Now I get alerts when I need to, and my customers don't slip through the cracks anymore. I finally have time to actually focus on my garage"</p>
+                    <div class="testimonial-author">
+                        <div class="author-details">
+                            <p class="author-name">John Smith</p>
+                            <p class="author-business"> Auto Repair Shop Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="files/nadia.png" alt="Client Photo" class="testimonial-photo">
+                    <p class="testimonial-quote">"We're a small team and we used to waste so much time on things like scheduling, follow-ups, and replying to the same questions. After one quick call, they helped us put a system in place that just works. Clients are happier, we're less stressed, and everything feels way more professional now."</p>
+                    <div class="testimonial-author">
+                        <div class="author-details">
+                            <p class="author-name">Nadia Clark</p>
+                            <p class="author-business">Freelancer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Me Section Start -->
+    <section class="about-section">
+        <div class="about-content fade-in-section">
+            <div class="about-image-wrapper">
+                <!-- Abstract SVG: Tangled lines becoming a straight line, representing organization/flow -->
+                <svg width="100%" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <path d="M20 100 Q60 20 100 100 T180 100 Q220 20 260 100 T340 100" stroke="#43a047" stroke-width="6" fill="none" opacity="0.3"/>
+                  <path d="M20 100 Q60 60 100 100 T180 100 Q220 60 260 100 T340 100" stroke="#0052cc" stroke-width="4" fill="none" opacity="0.3"/>
+                  <rect x="340" y="85" width="40" height="30" rx="8" fill="#43a047"/>
+                  <rect x="20" y="85" width="30" height="30" rx="8" fill="#0052cc"/>
+                  <circle cx="100" cy="100" r="10" fill="#43a047"/>
+                  <circle cx="260" cy="100" r="10" fill="#0052cc"/>
+                  <rect x="180" y="90" width="20" height="20" rx="6" fill="#90caf9"/>
+                </svg>
+            </div>
+            <div class="about-text-wrapper">
+                <h2 class="about-title">Our Mission & Method</h2>
+                <p>We believe that powerful automation shouldn't be complicated. Our mission is to give small businesses and coaches the tools to thrive without the tech headaches.</p>
+                <p>Our method is built on listening. We don't use one-size-fits-all solutions. Instead, we analyze your unique workflow to build a system that feels like a natural extension of your business.</p>
+                <p>Our promise is simple: to deliver a streamlined system that saves you time, reduces stress, and allows you to focus on what you love most.</p>
+            </div>
+        </div>
+    </section>
+    <!-- About Me Section End -->
+    <section class="detailed-call-section">
+        <div class="detailed-call-content">
+            <h2 class="section-title">What Happens on the 15-Minute Call</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="pillar-title">1. Identify Time Wasters</h3>
+                    <p class="pillar-description">We'll quickly pinpoint the repetitive, manual tasks that are consuming most of your valuable time and energy each day.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a4 4 0 00-8 0v2a4 4 0 004 4h2" />
+                        </svg>
+                    </div>
+                    <h3 class="pillar-title">2. Spot Bottlenecks</h3>
+                    <p class="pillar-description">We'll uncover where things feel messy or disorganized, so you can see exactly what's holding your business back.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </div>
+                    <h3 class="pillar-title">3. Discover Opportunities</h3>
+                    <p class="pillar-description">We'll talk about what you'd love help with, and show you how a few smart changes could free up your time and make things run smoother.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="who-section">
+        <div class="who-content fade-in-section">
+            <div class="who-title">Who We Work With</div>
+            <div class="who-intro">We help busy individuals and small teams who are:</div>
+            <div class="who-grid">
+                <div>
+                    <ul class="who-list">
+                        <li><span class="who-icon">–</span>Tired of doing everything themselves</li>
+                        <li><span class="who-icon">–</span>Losing time on repetitive or manual tasks</li>
+                        <li><span class="who-icon">–</span>Struggling to stay organized or follow up with clients</li>
+                    </ul>
+                    <div class="who-wrapup">Whether you work alone or manage a small group and no matter what your business is <br>we're here to make things easier.</div>
+                </div>
+                <div class="who-image-wrapper">
+                    <img src="files/who we work with.png" alt="Illustration showing who we work with">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section fade-in-section">
+        <div class="cta-headline">Let's Make Running Your Business Feel Lighter</div>
+        <div class="cta-support">Book a quick call and let's see how we can help free up your time.</div>
+        <button class="cta-button" onclick="window.open('https://calendly.com/axento-meeting/new-meeting?month=2025-07', '_blank')">Schedule My Free Call &rarr;</button>
+    </section>
+    <!-- Data Visualization Section Start -->
+    <section class="data-section">
+        <div class="data-content fade-in-section">
+            <h2 class="data-title">The Automation Advantage: A Data-Driven Overview</h2>
+            <div class="data-grid">
+                <div class="metric-card">
+                    <div class="pie-chart" style="--p:34;"><span class="pie-percent">34%</span></div>
+                    <div class="metric-text">
+                        <h3>Productivity Boost</h3>
+                        <p class="metric-description">An average increase of <strong>+34%</strong> for sales teams that adopt automation.</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="pie-chart" style="--p:30;"><span class="pie-percent">30%</span></div>
+                    <div class="metric-text">
+                        <h3>Time Reclaimed</h3>
+                        <p class="metric-description">Up to <strong>30%</strong> of manual tasks can be automated, freeing up hours each day.</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="pie-chart" style="--p:75;"><span class="pie-percent">75%</span></div>
+                    <div class="metric-text">
+                        <h3>Competitive Edge</h3>
+                        <p class="metric-description"><strong>75%</strong> of small businesses agree automation helps them compete with larger companies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="data-source">Source: Metrics compiled from reports by McKinsey, Salesforce, and Forbes.</div>
+        </div>
+    </section>
+    <!-- Data Visualization Section End -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>speedeaze</h3>
+                <p>© 2025 SpeedEaze. All Rights Reserved.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#" onclick="openModal('privacy-modal'); return false;">Privacy Policy</a></li>
+                    <li><a href="#" onclick="openModal('terms-modal'); return false;">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Privacy Policy Modal Start -->
+    <div id="privacy-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('privacy-modal')">&times;</button>
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated: January 2025</strong></p>
+            
+            <h3>1. Introduction</h3>
+            <p>Welcome to Speed Eaze. This Privacy Policy explains how Axento ("we," "us," or "our") collects, uses, shares, and protects information in relation to our automation services (the "Services"). This policy applies to anyone who interacts with our advertising technologies or visits a website or application where our Services are active.</p>
+            
+            <p>Our legal name is Axento and we can be contacted for any privacy-related questions by emailing us at admin@speedeaze.com.</p>
+            
+            <p>This Privacy Policy is designed to meet the requirements of major privacy regulations, including the General Data Protection Regulation (GDPR) in Europe and state-level privacy laws in the United States, such as the California Consumer Privacy Act (CCPA).</p>
+            
+            <h3>2. The Information We Collect</h3>
+            <p>We collect information to provide and improve our advertising and automation services. The types of information we collect depend on how you interact with our technology.</p>
+            
+            <h4>A. Information You Do NOT Directly Provide to Us</h4>
+            <p>Our Services are designed to operate without requiring individuals to directly provide us with personal information such as their name, email address, or phone number.</p>
+            
+            <h4>B. Payment Information</h4>
+            <p>When a payment is required to use our services, we use a third-party payment processor, Stripe, to handle the transaction. We do not directly collect, store, or process your credit card details or financial account information. We receive a confirmation of payment from Stripe, which may include your billing name and a transaction identifier, but not your full financial details. We recommend you review Stripe's privacy policy to understand their practices.</p>
+            
+            <h4>C. Information We Automatically Collect</h4>
+            <p>When you visit a website or application that uses our technology, or when you interact with an advertisement provided through our Services, we automatically collect certain information. This is the core of our data collection for advertising purposes. This information includes:</p>
+            
+            <p><strong>Identifiers:</strong></p>
+            <ul>
+                <li><strong>IP Address:</strong> Your unique address on the internet.</li>
+                <li><strong>Cookie IDs:</strong> A unique ID stored in a small file on your browser that allows us to recognize your browser over time.</li>
+                <li><strong>Mobile Advertising IDs:</strong> Such as IDFA (for iOS) or AAID (for Android), if you interact with our services on a mobile application.</li>
+            </ul>
+            
+            <p><strong>Device and Connection Information:</strong></p>
+            <ul>
+                <li><strong>Browser Information:</strong> The type, version, and language settings of your browser (e.g., Chrome, Safari).</li>
+                <li><strong>Device Information:</strong> The type of device (e.g., Desktop, Mobile), operating system (e.g., Windows, iOS), and screen resolution.</li>
+            </ul>
+            
+            <p><strong>Internet Activity and Usage:</strong></p>
+            <ul>
+                <li><strong>Website Interaction:</strong> The pages you visit, the features you use, how long you stay on those pages, and what you click on.</li>
+                <li><strong>Referral Data:</strong> The web address of the site you came from before landing on a site using our Services.</li>
+                <li><strong>Search History:</strong> The search terms that may have led you to a site using our Services.</li>
+            </ul>
+            
+            <p><strong>Advertising Interaction:</strong></p>
+            <ul>
+                <li>Information about the ads you have been shown or have interacted with (e.g., clicked on).</li>
+                <li>The platform where you saw the ad (e.g., Google, Facebook).</li>
+            </ul>
+            
+            <p><strong>Geolocation Data:</strong></p>
+            <ul>
+                <li>We infer your general geographic location (e.g., country, state, and city) from your IP address. We do not collect precise GPS location.</li>
+            </ul>
+            
+            <p><strong>Inferences:</strong></p>
+            <ul>
+                <li>We use the information listed above to draw inferences and create data segments. These are profiles about a user's potential preferences, interests, and characteristics (e.g., "User likely interested in marketing software," "User located in the United States"). We use these inferences to provide more relevant advertising on behalf of our clients.</li>
+            </ul>
+            
+            <h3>3. How and Why We Use Your Information</h3>
+            <p>We use the information we collect for several business and commercial purposes, which are strictly related to providing and operating our Services. These purposes include:</p>
+            
+            <p><strong>A. Providing and Operating Our Services:</strong> To deliver our core advertising automation services to our clients, including displaying advertisements on various platforms, managing ad campaigns, and ensuring ads are delivered correctly to the intended audiences.</p>
+            
+            <p><strong>B. Personalization and Targeted Advertising (Cross-Context Behavioral Advertising):</strong> This is a primary purpose of our data processing. We use the information we collect, particularly Identifiers, Internet Activity, and Inferences, to show you ads that are more likely to be relevant to your interests. This involves tracking user activity across different, unaffiliated websites and applications over time, building profiles or "segments" based on your inferred interests, and frequency capping (to ensure you don't see the same ad too many times).</p>
+            
+            <p><strong>C. Analytics and Performance Measurement:</strong> To measure and analyze the effectiveness of the advertising campaigns run through our Services. This helps us and our clients understand which ads are being viewed and clicked on, measure conversion rates, and improve campaign performance.</p>
+            
+            <p><strong>D. Maintaining Security and Preventing Fraud:</strong> To protect the security and integrity of our Services, our clients, and the platforms where our ads are displayed. This includes using data like IP addresses to identify and prevent malicious activity, click fraud, and other security threats.</p>
+            
+            <p><strong>E. Legal Compliance and Enforcement:</strong> To comply with our legal obligations, regulations, or in response to lawful requests from public authorities (e.g., a court order or subpoena). We may also use this information to enforce our own terms of service and protect our rights and interests, or those of our users and third parties.</p>
+            
+            <h3>4. How and With Whom We Share Your Information</h3>
+            <p>We do not sell personal information in the traditional sense of the word. However, we do share information with third parties and service providers for the business purposes described in this policy, including for cross-context behavioral advertising. We may share the information we collect with the following categories of third parties:</p>
+            
+            <p><strong>A. Our Clients:</strong> We share information with our clients who use our Services to run their advertising campaigns. This information typically includes campaign performance reports and audience segments based on inferred interests.</p>
+            
+            <p><strong>B. Advertising, Analytics, and Technology Partners:</strong> We share data with third-party services that help us operate, analyze, and deliver our Services. These partners include:</p>
+            <ul>
+                <li><strong>Advertising Platforms:</strong> Such as Google Ads, Meta (Facebook/Instagram) Ads, LinkedIn Ads, and Microsoft Advertising.</li>
+                <li><strong>Analytics Services:</strong> Such as Google Analytics.</li>
+                <li><strong>Hosting & Cloud Providers:</strong> Such as Amazon Web Services (AWS), Google Cloud, and Vercel.</li>
+                <li><strong>Tag Management Systems:</strong> Such as Google Tag Manager.</li>
+                <li><strong>CRM & Marketing Platforms:</strong> Such as HubSpot, Mailchimp, and Salesforce.</li>
+            </ul>
+            
+            <p><strong>C. For Legal Obligations and Safety:</strong> We may disclose your information if we believe in good faith that it is necessary to comply with a law, regulation, or legal process; to protect the safety of any person; to address fraud or security issues; or to protect our rights or property.</p>
+            
+            <p><strong>D. In Case of Business Transfer:</strong> If Axento is involved in a merger, acquisition, bankruptcy, or sale of all or a portion of our assets, your information may be transferred as part of that transaction.</p>
+            
+            <h3>5. Data Retention</h3>
+            <p>We retain personal data only for as long as necessary to fulfill the purposes for which it was collected. Our retention periods are as follows:</p>
+            <ul>
+                <li><strong>Data from Advertising Cookies:</strong> Retained for a period of 13 months from the date of collection.</li>
+                <li><strong>Analytics Data:</strong> Retained for a period of 26 months.</li>
+                <li><strong>Server Logs:</strong> Retained for up to 12 months for security and troubleshooting purposes.</li>
+            </ul>
+            
+            <h3>6. Cookies and Tracking Technologies</h3>
+            <p>We and our third-party partners use cookies and similar tracking technologies (like web beacons or pixels) to collect the "Information We Automatically Collect." A "cookie" is a small text file stored on your browser. These technologies are essential to our Services and are used for advertising, analytics, and functionality.</p>
+            
+            <p><strong>Controlling Cookies:</strong> Most web browsers allow you to control cookies through their settings. However, if you disable cookies, some parts of our Services may not function properly, and your ability to opt-out of our advertising services may be impaired.</p>
+            
+            <h3>7. Your Data Protection Rights and Choices</h3>
+            <p><strong>A. How to Exercise Your Rights</strong></p>
+            <p>To exercise any of the rights described below, please email us at admin@speedeaze.com. We will respond within the timeframes required by law (typically 30-45 days). We may need to verify your identity before processing your request.</p>
+            
+            <p><strong>B. Your Rights as a Resident of the European Economic Area (EEA), UK, and Switzerland</strong></p>
+            <p>If you are a resident of these regions, you have the right under GDPR to Access, Rectify, Erase, Restrict Processing, Object to Processing, and Data Portability. You also have the right to withdraw consent for cookie-based processing at any time and to lodge a complaint with your local data protection authority.</p>
+            
+            <p><strong>C. Your Rights as a Resident of Certain U.S. States (e.g., California)</strong></p>
+            <p>If you are a resident of a U.S. state with a comprehensive privacy law (like CCPA), you have the right to Know/Access, Delete, and Correct your personal information. You also have:</p>
+            <ul>
+                <li><strong>The Right to Opt-Out of the "Sale" or "Sharing" of Personal Information:</strong> You have the right to direct us not to "share" your personal information for cross-context behavioral advertising. You can exercise this right by clicking the "Do Not Sell or Share My Personal Information" link on our website or our clients' websites, or by enabling a universal opt-out signal like the Global Privacy Control (GPC).</li>
+                <li><strong>The Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
+            </ul>
+            
+            <h3>8. Data Security</h3>
+            <p>We have implemented reasonable and appropriate technical and organizational security measures to protect the personal data we process. However, no security system is impenetrable, and we cannot guarantee the absolute security of your information.</p>
+            
+            <h3>9. Children's Privacy</h3>
+            <p>Our Services are not directed to individuals under the age of 16, and we do not knowingly collect personal information from them. If you believe we have inadvertently collected such information, please contact us so we can take steps to delete it.</p>
+            
+            <h3>10. Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Effective Date" at the top.</p>
+            
+            <h3>11. Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <p><strong>Legal Name:</strong> Axento<br>
+            <strong>Email:</strong> admin@speedeaze.com</p>
+        </div>
+    </div>
+    <!-- Terms of Service Modal Start -->
+    <div id="terms-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('terms-modal')">&times;</button>
+            <h2>Terms of Service</h2>
+            <p><strong>Last Updated: January 2025</strong></p>
+            
+            <p>This document constitutes the Terms of Service ("Terms") for the advertising automation and management services (the "Services") provided by Axento ("we," "us," or "our").</p>
+            
+            <p>These Terms govern the relationship between Axento and you, the client, and any entity you represent ("you" or "Client"). These Terms are a legally binding contract. Please read them carefully.</p>
+            
+            <h3>1. Agreement to Terms</h3>
+            <p>By booking a meeting, requesting a proposal, or remitting payment for our Services, you are confirming that you have read, understood, and agree to be bound by these Terms.</p>
+            
+            <p>We will require that you affirmatively accept these Terms, for example, by checking a box on our meeting booking form stating "I have read and agree to the Terms of Service," before a meeting can be scheduled. This action constitutes a binding electronic signature.</p>
+            
+            <h3>2. The Services</h3>
+            <p>We provide specialized advertising automation, campaign management, and related consulting services.</p>
+            
+            <p>The specific scope, deliverables, and nature of the Services to be provided to you will be defined in a separate proposal, statement of work, or invoice ("Service Proposal") that we will provide to you after our initial consultation. The Service Proposal will become part of this agreement once accepted by you.</p>
+            
+            <h3>3. Fees and Payment</h3>
+            <p><strong>A. Fees:</strong> The fees for our Services ("Fees") will be detailed in the Service Proposal provided to you. All fees are quoted in United States Dollars unless otherwise specified. You agree to pay the Fees in full and in accordance with the payment terms specified in the Service Proposal.</p>
+            
+            <p><strong>B. Payment:</strong> All payments must be made in advance of the service period. We will provide you with an invoice and a secure payment link via our third-party payment processor, Stripe. We will not commence any work or provide any Services until payment has been received in full.</p>
+            
+            <p><strong>C. No Refunds:</strong> All Fees paid to Axento for the Services are non-refundable. When you remit payment, you are securing our time and resources for the agreed-upon service period. We do not offer refunds or credits for partially used service periods, or for any other reason once a payment has been made.</p>
+            
+            <p><strong>D. Price Changes:</strong> We reserve the right to change the prices for our Services at any time. Any price changes will be communicated to you in a new Service Proposal and will only apply to future service periods.</p>
+            
+            <p><strong>E. Taxes:</strong> You are solely responsible for paying any and all applicable sales, use, value-added, or other taxes, levies, or duties associated with your purchase of our Services.</p>
+            
+            <h3>4. Client Responsibilities and Acceptable Use</h3>
+            <p><strong>A. Client Responsibilities:</strong> You are solely responsible for all materials you provide to us for use in connection with the Services, including but not limited to ad copy, images, videos, branding, and links to landing pages ("Client Content"). You are also responsible for ensuring your business practices, products, and services are compliant with all applicable laws and regulations.</p>
+            
+            <p><strong>B. Acceptable Use:</strong> You agree not to use our Services to create, promote, or manage any advertisement or campaign that:</p>
+            <ul>
+                <li>Is illegal, fraudulent, deceptive, or misleading.</li>
+                <li>Infringes upon the intellectual property rights of any third party, including copyrights, trademarks, or patents.</li>
+                <li>Contains defamatory, libelous, obscene, or hateful content.</li>
+                <li>Promotes violence, discrimination, or harassment against any individual or group.</li>
+                <li>Contains or introduces any viruses, malware, or other malicious code.</li>
+                <li>Violates the advertising policies of the platforms on which the ads will run (e.g., Google Ads, Meta Ads, etc.).</li>
+            </ul>
+            
+            <p>We reserve the right to refuse to use any Client Content that we, in our sole discretion, deem to be in violation of these Terms or the policies of our advertising partners.</p>
+            
+            <h3>5. Intellectual Property Rights</h3>
+            <p><strong>A. Our Intellectual Property:</strong> We retain all right, title, and interest in and to our own pre-existing materials, software, technology, strategies, methodologies, and know-how used to provide the Services, including all rights to the "Speed Eaze" and "Axento" brands. Nothing in these Terms grants you any ownership of our intellectual property.</p>
+            
+            <p><strong>B. Your Intellectual Property:</strong> You retain all right, title, and interest in and to your Client Content. You hereby grant Axento a limited, non-exclusive, worldwide, royalty-free license to use, copy, display, and distribute your Client Content solely for the purpose of providing the Services to you as outlined in the applicable Service Proposal.</p>
+            
+            <h3>6. Confidentiality</h3>
+            <p>Both parties agree to protect each other's "Confidential Information." Confidential Information includes, but is not limited to, the terms of the Service Proposal, business strategies, client lists, ad performance data, and any non-public information shared by one party with the other. The receiving party agrees not to disclose the disclosing party's Confidential Information to any third party without prior written consent, except as required by law.</p>
+            
+            <h3>7. Disclaimer of Warranties and Limitation of Liability</h3>
+            <p><strong>A. Disclaimer of Warranties:</strong> THE SERVICES ARE PROVIDED "AS-IS" AND "AS-AVAILABLE." AXENTO EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING, WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT GUARANTEE ANY SPECIFIC RESULTS, SUCH AS A PARTICULAR RETURN ON AD SPEND (ROAS), NUMBER OF CLICKS, LEADS, OR CONVERSIONS. ALL ADVERTISING INVOLVES RISK, AND YOU ACKNOWLEDGE THAT YOU ARE RESPONSIBLE FOR YOUR OWN BUSINESS OUTCOMES.</p>
+            
+            <p><strong>B. Limitation of Liability:</strong> TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL AXENTO OR ITS DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU FOR ANY LOST PROFITS, LOST REVENUE, OR FOR ANY INDIRECT, CONSEQUENTIAL, INCIDENTAL, OR SPECIAL DAMAGES, WHETHER OR NOT WE WERE ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR MAXIMUM AGGREGATE LIABILITY TO YOU FOR ANY AND ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICES, WHETHER IN CONTRACT, TORT, OR OTHERWISE, SHALL BE LIMITED TO THE TOTAL AMOUNT OF FEES PAID BY YOU TO AXENTO IN THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
+            
+            <h3>8. Term and Termination</h3>
+            <p><strong>A. Term:</strong> This agreement begins on the date you first accept these Terms and continues as long as you are receiving Services from us.</p>
+            
+            <p><strong>B. Termination for Convenience:</strong> Either party may terminate this agreement for any reason by providing the other party with thirty (30) days written notice.</p>
+            
+            <p><strong>C. Termination for Cause:</strong> We may suspend or terminate your access to the Services and this agreement immediately and without prior notice if you fail to make a timely payment of any Fees owed; you breach any part of Section 4 (Client Responsibilities and Acceptable Use); or you breach any other material term of this agreement and fail to cure the breach within ten (10) days of receiving written notice from us.</p>
+            
+            <p><strong>D. Effect of Termination:</strong> Upon termination of this agreement, you shall immediately pay any and all outstanding, unpaid Fees due for Services rendered. All sections of these Terms which by their nature should survive termination will survive, including, without limitation, intellectual property provisions, confidentiality obligations, warranty disclaimers, and limitations of liability.</p>
+            
+            <h3>9. Governing Law and Dispute Resolution</h3>
+            <p>This agreement and any dispute arising out of or related to it shall be governed by and construed in accordance with the laws of the State of New York, United States, without regard to its conflict of law provisions.</p>
+            
+            <p>Any legal action or proceeding arising under these Terms will be brought exclusively in the federal or state courts located in Erie County, New York, and the parties hereby irrevocably consent to the personal jurisdiction and venue therein.</p>
+            
+            <h3>10. General Provisions</h3>
+            <p><strong>A. Entire Agreement:</strong> These Terms, together with any Service Proposal provided by us, constitute the entire agreement between you and Axento concerning the Services and supersede all prior and contemporaneous agreements, proposals, or representations, written or oral.</p>
+            
+            <p><strong>B. Severability:</strong> If any provision of these Terms is held by a court of competent jurisdiction to be invalid or unenforceable, that provision will be enforced to the maximum extent permissible and the other provisions of these Terms will remain in full force and effect.</p>
+            
+            <p><strong>C. Waiver:</strong> Our failure to exercise or enforce any right or provision of these Terms will not constitute a waiver of such right or provision.</p>
+            
+            <p><strong>D. Assignment:</strong> You may not assign or transfer your rights or obligations under these Terms without our prior written consent. We may assign our rights and obligations under these Terms without condition (for example, in connection with a merger, acquisition, or sale of all or substantially all of our assets).</p>
+            
+            <p><strong>E. Notices:</strong> All notices or other communications required under these Terms shall be in writing and shall be deemed to have been duly given when delivered by email to the email address provided by each party to the other.</p>
+        </div>
+    </div>
+    <script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    // Optional: Close modal on overlay click and Escape key for both modals
+    document.addEventListener('DOMContentLoaded', function() {
+        ['privacy-modal', 'terms-modal'].forEach(function(modalId) {
+            var overlay = document.getElementById(modalId);
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) closeModal(modalId);
+                });
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                ['privacy-modal', 'terms-modal'].forEach(function(modalId) {
+                    closeModal(modalId);
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
+    
+            if (!sectionsToAnimate) {
+                return;
+            }
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Special case: if this is .pain-content, also add .is-visible to its .pain-closing child
+                        if (entry.target.classList.contains('pain-content')) {
+                            const closing = entry.target.querySelector('.pain-closing');
+                            if (closing) closing.classList.add('is-visible');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+    
+            sectionsToAnimate.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var painClosing = document.querySelector('.pain-closing');
+            var whatContent = document.querySelector('.what-content');
+            if (painClosing && whatContent) {
+                painClosing.addEventListener('transitionend', function(e) {
+                    if (e.propertyName === 'opacity' && painClosing.classList.contains('is-visible')) {
+                        whatContent.classList.remove('hidden-section');
+                        whatContent.classList.add('fade-in-section', 'is-visible');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
