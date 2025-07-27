@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - SpeedEaze</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .faq-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            opacity: 0.1;
+        }
+        
+        .faq-content {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .faq-head h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(156deg, #ffffff 40.47%, #26a1cc 51.49%, #d1f56d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .faq-head p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq-accordion-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-accordion-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .faq-question-wrapper {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question-wrapper:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .faq-accordion-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .faq-accordion-plus {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #d1f56d;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer-wrapper {
+            height: 0px;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+        
+        .faq-answer-wrapper.active {
+            height: auto;
+        }
+        
+        .faq-accordion-text {
+            padding: 0 30px 25px 30px;
+            color: #cccccc;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-head h2 {
+                font-size: 2rem;
+            }
+            
+            .faq-question-wrapper {
+                padding: 20px;
+            }
+            
+            .faq-accordion-text {
+                padding: 0 20px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="faq-section">
+        <img src="./files/684d598c86d0f0f7ba3d925a_a75c58fa16f5fa02b0a83258d36af433_Ellipse 20.svg" loading="lazy" alt="shape" class="faq-shape">
+        <div class="container">
+            <div class="faq-content">
+                <div class="faq-head">
+                    <h2>Frequently asked <span style="background: linear-gradient(156deg, #ffffff 40.47%, #26a1cc 51.49%, #d1f56d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">questions</span></h2>
+                    <p>Have questions? Here's what most coaches ask before automating.</p>
+                </div>
+                
+                <div class="faq-accordion-wrapper">
+                    <div class="faq-accordion-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-accordion-title">How fast can I get my AI system live?</div>
+                            <div class="faq-accordion-plus">+</div>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-accordion-text">
+                                Most applicants receive a decision within 24 hours. Once approved, funds are typically deposited by the next business day. It's fast, easy, and secure.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-accordion-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-accordion-title">Do I need tech skills to use this?</div>
+                            <div class="faq-accordion-plus">+</div>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-accordion-text">
+                                No, we focus more on employment and income than credit history. Many borrowers with fair or limited credit still qualify. We believe in financial second chances.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-accordion-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-accordion-title">How do I manage or update my automation later?</div>
+                            <div class="faq-accordion-plus">+</div>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-accordion-text">
+                                Payments are automatically deducted from your payroll. This makes repayment simple, stress-free, and on time. No need to worry about due dates.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-accordion-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-accordion-title">Are there any hidden costs?</div>
+                            <div class="faq-accordion-plus">+</div>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-accordion-text">
+                                Never. We're fully transparent about your interest and terms. There are no origination, prepayment, or surprise fees. What you see is what you pay.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-accordion-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-accordion-title">Is my client data safe?</div>
+                            <div class="faq-accordion-plus">+</div>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-accordion-text">
+                                Yes, we use industry-standard encryption and secure systems. Your data is protected every step of the way. Privacy and safety are top priorities.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up FAQ functionality...');
+            
+            // Add click event listeners to all FAQ questions
+            const faqQuestions = document.querySelectorAll('.faq-question-wrapper');
+            console.log('Found', faqQuestions.length, 'FAQ questions');
+            
+            faqQuestions.forEach((question, index) => {
+                question.addEventListener('click', function(e) {
+                    console.log('FAQ question clicked:', index);
+                    e.preventDefault();
+                    toggleFAQ(this);
+                });
+            });
+        });
+
+        function toggleFAQ(element) {
+            console.log('toggleFAQ called');
+            const answerWrapper = element.nextElementSibling;
+            const plusIcon = element.querySelector('.faq-accordion-plus');
+            
+            console.log('Answer wrapper:', answerWrapper);
+            console.log('Plus icon:', plusIcon);
+            
+            // Close all other FAQ items
+            const allFAQItems = document.querySelectorAll('.faq-answer-wrapper');
+            const allPlusIcons = document.querySelectorAll('.faq-accordion-plus');
+            
+            allFAQItems.forEach(item => {
+                if (item !== answerWrapper) {
+                    item.classList.remove('active');
+                    item.style.height = '0px';
+                }
+            });
+            
+            allPlusIcons.forEach(icon => {
+                if (icon !== plusIcon) {
+                    icon.textContent = '+';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ item
+            if (answerWrapper.classList.contains('active')) {
+                console.log('Closing FAQ item');
+                answerWrapper.classList.remove('active');
+                answerWrapper.style.height = '0px';
+                plusIcon.textContent = '+';
+                plusIcon.style.transform = 'rotate(0deg)';
+            } else {
+                console.log('Opening FAQ item');
+                answerWrapper.classList.add('active');
+                // Calculate the height of the content
+                const content = answerWrapper.querySelector('.faq-accordion-text');
+                const contentHeight = content.offsetHeight;
+                console.log('Content height:', contentHeight);
+                answerWrapper.style.height = contentHeight + 'px';
+                plusIcon.textContent = '−';
+                plusIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+    
+    <!-- Fallback: If JavaScript doesn't work, add some basic CSS to show answers -->
+    <style>
+        /* Fallback for when JavaScript is disabled */
+        .faq-answer-wrapper {
+            display: none;
+        }
+        
+        .faq-answer-wrapper.active {
+            display: block;
+        }
+    </style>
+</body>
+</html> 
