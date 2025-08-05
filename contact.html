@@ -487,10 +487,9 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <div class="contact-form">
                     <h2>Get Started</h2>
-                    <form id="contactForm" method="POST" action="YOUR_WORKER_URL_HERE">
+                    <form id="contactForm" method="POST" action="https://form-submission-handler.hachhouchzakaria.workers.dev/">
                       <div class="form-row">
                         <div class="form-group">
                           <label for="firstName">First Name</label>
@@ -577,82 +576,58 @@
                         </div>
                       </div>
                   
-                      <!-- Submit button inside the form -->
                       <button type="submit" class="btn-submit">Submit</button>
                     </form>
                   
-                    <!-- Calendly link outside the form, stays visible always -->
-                    <a href="https://calendly.com/hachhouchzakaria/30min" target="_blank" rel="noopener noreferrer" class="btn-schedule">
-                      Schedule a Call
-                    </a>
-                  
                     <div class="success-message" id="successMessage" style="display:none;">
-                      <p>✅ Thank you! Your message has been sent successfully. We'll get back to you within 2 hours.</p>
+                      <p>✅ Thank you! Your message has been sent successfully. Redirecting to scheduling page...</p>
                     </div>
                   </div>
                   
+                  <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const contactForm = document.getElementById('contactForm');
+                      const successMessage = document.getElementById('successMessage');
                   
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>SpeedEaze</h3>
-                    <p>SpeedEaze offers AI automation solutions designed to help coaches save time and scale their businesses, without the tech complexity.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Main Pages</h3>
-                    <ul>
-                        <li><a href="about-exact.html">About Us</a></li>
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="file/blog/ai-onboarding-agents-save-coaches-time.html">Blog</a></li>
-                        <li><a href="contact.html">Pricing</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>More Resources</h3>
-                    <ul>
-                        <li><a href="contact.html">Contact</a></li>
-                                                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                         <li><a href="terms.html">Terms</a></li>
-                        <li><a href="#">404</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>© 2025 SpeedEaze</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const successMessage = document.getElementById('successMessage');
-
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Here you would typically send the form data to your server
-                // For now, we'll just show the success message
-                
-                // Hide the form
-                contactForm.style.display = 'none';
-                
-                // Show success message
-                successMessage.classList.add('show');
-                
-                // Reset form after 5 seconds (for demo purposes)
-                setTimeout(() => {
-                    contactForm.style.display = 'block';
-                    successMessage.classList.remove('show');
-                    contactForm.reset();
-                }, 5000);
-            });
-        });
-    </script>
-</body>
-</html> 
+                      contactForm.addEventListener('submit', async function (e) {
+                        e.preventDefault();
+                  
+                        const formData = new FormData(contactForm);
+                        const data = {};
+                  
+                        formData.forEach((value, key) => {
+                          if (key.endsWith('[]')) {
+                            const trimmedKey = key.slice(0, -2);
+                            if (!data[trimmedKey]) data[trimmedKey] = [];
+                            data[trimmedKey].push(value);
+                          } else {
+                            data[key] = value;
+                          }
+                        });
+                  
+                        try {
+                          const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data),
+                          });
+                  
+                          const result = await response.json();
+                  
+                          if (result.success !== false) {
+                            contactForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+                  
+                            setTimeout(() => {
+                              window.location.href = 'https://calendly.com/hachhouchzakaria/30min';
+                            }, 2000);
+                          } else {
+                            alert('Error: ' + (result.error || 'Submission failed.'));
+                          }
+                        } catch (error) {
+                          alert('Error submitting form: ' + error.message);
+                        }
+                      });
+                    });
+                  </script>
+                  
