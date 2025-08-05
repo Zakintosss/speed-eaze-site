@@ -489,7 +489,7 @@
 
                 <div class="contact-form">
                     <h2>Get Started</h2>
-                    <form id="contactForm" method="POST" action="https://form-submission-handler.hachhouchzakaria.workers.dev/">
+                    <form id="contactForm">
                       <div class="form-row">
                         <div class="form-group">
                           <label for="firstName">First Name</label>
@@ -585,16 +585,26 @@
                   </div>
                   
                   <script>
+                    // Cloudflare Worker URL for form submissions
+                    const WORKER_URL = 'https://form-submission-handler.hachhouchzakaria.workers.dev';
+                    
                     document.addEventListener('DOMContentLoaded', function () {
                       const contactForm = document.getElementById('contactForm');
                       const successMessage = document.getElementById('successMessage');
+                      const submitButton = contactForm.querySelector('.btn-submit');
                   
                       contactForm.addEventListener('submit', async function (e) {
                         e.preventDefault();
                   
+                        // Show loading state
+                        const originalText = submitButton.textContent;
+                        submitButton.textContent = 'Submitting...';
+                        submitButton.disabled = true;
+                  
                         const formData = new FormData(contactForm);
                         const data = {};
                   
+                        // Convert FormData to JSON object
                         formData.forEach((value, key) => {
                           if (key.endsWith('[]')) {
                             const trimmedKey = key.slice(0, -2);
@@ -605,8 +615,16 @@
                           }
                         });
                   
+                        // Add selected automations
+                        const selectedAutomations = [];
+                        const automationCheckboxes = contactForm.querySelectorAll('input[name="automations[]"]:checked');
+                        automationCheckboxes.forEach(checkbox => {
+                          selectedAutomations.push(checkbox.value);
+                        });
+                        data.automations = selectedAutomations;
+                  
                         try {
-                          const response = await fetch(contactForm.action, {
+                          const response = await fetch(WORKER_URL, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(data),
@@ -614,18 +632,26 @@
                   
                           const result = await response.json();
                   
-                          if (result.success !== false) {
+                          if (response.ok && result.success) {
+                            // Success - show success message
                             contactForm.style.display = 'none';
                             successMessage.style.display = 'block';
                   
+                            // Redirect to Calendly after 2 seconds
                             setTimeout(() => {
-                              window.location.href = 'https://calendly.com/hachhouchzakaria/30min';
+                              window.open('https://calendly.com/hachhouchzakaria/30min', '_blank');
                             }, 2000);
                           } else {
+                            // Error - show error message
                             alert('Error: ' + (result.error || 'Submission failed.'));
                           }
                         } catch (error) {
-                          alert('Error submitting form: ' + error.message);
+                          console.error('Form submission error:', error);
+                          alert('Network error. Please try again.');
+                        } finally {
+                          // Reset button state
+                          submitButton.textContent = originalText;
+                          submitButton.disabled = false;
                         }
                       });
                     });
