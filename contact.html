@@ -579,11 +579,10 @@
                       <button type="submit" class="btn-submit">Submit</button>
                     </form>
                   
-                    <div class="success-message" id="successMessage" style="display:none;">
-                      <p>✅ Thank you! Your message has been sent successfully.</p>
-                      <p>We'll get back to you within 2 hours.</p>
-                      <p><a href="https://calendly.com/hachhouchzakaria/30min" target="_blank" style="color: #ff6b35; text-decoration: none; font-weight: 600;">📅 Schedule a Call with Us</a></p>
-                    </div>
+                                         <div class="success-message" id="successMessage" style="display:none;">
+                       <p>✅ Thank you! Your message has been sent successfully.</p>
+                       <p>Redirecting to scheduling page...</p>
+                     </div>
                   </div>
                   
                   <script>
@@ -634,13 +633,15 @@
                   
                           const result = await response.json();
                   
-                          if (response.ok && result.success) {
-                            // Success - show success message
-                            contactForm.style.display = 'none';
-                            successMessage.style.display = 'block';
-                  
-                            // Show success message without auto-redirect
-                            // User can manually click the Calendly link below
+                                                     if (response.ok && result.success) {
+                             // Success - show success message
+                             contactForm.style.display = 'none';
+                             successMessage.style.display = 'block';
+                   
+                             // Automatically redirect to Calendly after 2 seconds
+                             setTimeout(() => {
+                               window.location.href = 'https://calendly.com/hachhouchzakaria/30min';
+                             }, 2000);
                           } else {
                             // Error - show error message
                             alert('Error: ' + (result.error || 'Submission failed.'));
