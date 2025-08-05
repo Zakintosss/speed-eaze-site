@@ -490,104 +490,101 @@
                 <!-- Contact Form -->
                 <div class="contact-form">
                     <h2>Get Started</h2>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="companyName">Company Name</label>
-                                <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input type="email" id="email" name="email" placeholder="You@Gmail.Com" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="serviceRequired">Service required</label>
-                                <select id="serviceRequired" name="serviceRequired" required>
-                                    <option value="">Select Your Service</option>
-                                    <option value="starter-ai">Starter AI</option>
-                                    <option value="growth-ai">Growth AI</option>
-                                    <option value="scale-ai">Scale AI</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="projectBudget">Project budget</label>
-                                <select id="projectBudget" name="projectBudget" required>
-                                    <option value="">Select Your Range</option>
-                                    <option value="100-250">100-250 USD</option>
-                                    <option value="250-500">250-500 USD</option>
-                                    <option value="500-1000">500-1000 USD</option>
-                                </select>
-                            </div>
-                        </div>
-                        
+                    <form id="contactForm" method="POST" action="https://form-submission-handler.hachhouchzakaria.workers.dev">
+                      <div class="form-row">
                         <div class="form-group">
-                            <label for="message">Tell Us About you</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can we do this?" required></textarea>
+                          <label for="firstName">First Name</label>
+                          <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
                         </div>
-                        
                         <div class="form-group">
-                            <label>Select Automations You Need</label>
-                            <div class="checkbox-group">
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="clientOnboarding" name="automations[]" value="client-onboarding">
-                                    <label for="clientOnboarding">Client Onboarding Automation</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="leadFollowUp" name="automations[]" value="lead-follow-up">
-                                    <label for="leadFollowUp">Lead Follow-Up Agent (Email/DM)</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="contentRepurposing" name="automations[]" value="content-repurposing">
-                                    <label for="contentRepurposing">Content Repurposing Bot (from notes/calls)</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="reminderSystem" name="automations[]" value="reminder-system">
-                                    <label for="reminderSystem">Reminder & Rescheduling System</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="faqBot" name="automations[]" value="faq-bot">
-                                    <label for="faqBot">FAQ Answer Bot (trained on your responses)</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="salesAssistant" name="automations[]" value="sales-assistant">
-                                    <label for="salesAssistant">Sales Assistant / Mini CRM</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="sessionSummary" name="automations[]" value="session-summary">
-                                    <label for="sessionSummary">Session Summary Generator</label>
-                                </div>
-                                <div class="checkbox-item">
-                                    <input type="checkbox" id="multiChannel" name="automations[]" value="multi-channel">
-                                    <label for="multiChannel">Multi-Channel Auto DM / Email Funnel</label>
-                                </div>
-                            </div>
+                          <label for="lastName">Last Name</label>
+                          <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
                         </div>
-                        
-                        <a href="https://calendly.com/hachhouchzakaria/30min" class="btn-submit" target="_blank" rel="noopener noreferrer">Schedule a Call</a>
+                      </div>
+                  
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for="companyName">Company Name</label>
+                          <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name" />
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email address</label>
+                          <input type="email" id="email" name="email" placeholder="You@Gmail.Com" required />
+                        </div>
+                      </div>
+                  
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for="serviceRequired">Service required</label>
+                          <select id="serviceRequired" name="serviceRequired" required>
+                            <option value="">Select Your Service</option>
+                            <option value="starter-ai">Starter AI</option>
+                            <option value="growth-ai">Growth AI</option>
+                            <option value="scale-ai">Scale AI</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="projectBudget">Project budget</label>
+                          <select id="projectBudget" name="projectBudget" required>
+                            <option value="">Select Your Range</option>
+                            <option value="100-250">100-250 USD</option>
+                            <option value="250-500">250-500 USD</option>
+                            <option value="500-1000">500-1000 USD</option>
+                          </select>
+                        </div>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label for="message">Tell Us About you</label>
+                        <textarea id="message" name="message" rows="4" placeholder="How can we do this?" required></textarea>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label>Select Automations You Need</label>
+                        <div class="checkbox-group">
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="clientOnboarding" name="automations[]" value="client-onboarding" />
+                            <label for="clientOnboarding">Client Onboarding Automation</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="leadFollowUp" name="automations[]" value="lead-follow-up" />
+                            <label for="leadFollowUp">Lead Follow-Up Agent (Email/DM)</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="contentRepurposing" name="automations[]" value="content-repurposing" />
+                            <label for="contentRepurposing">Content Repurposing Bot (from notes/calls)</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="reminderSystem" name="automations[]" value="reminder-system" />
+                            <label for="reminderSystem">Reminder & Rescheduling System</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="faqBot" name="automations[]" value="faq-bot" />
+                            <label for="faqBot">FAQ Answer Bot (trained on your responses)</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="salesAssistant" name="automations[]" value="sales-assistant" />
+                            <label for="salesAssistant">Sales Assistant / Mini CRM</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="sessionSummary" name="automations[]" value="session-summary" />
+                            <label for="sessionSummary">Session Summary Generator</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="multiChannel" name="automations[]" value="multi-channel" />
+                            <label for="multiChannel">Multi-Channel Auto DM / Email Funnel</label>
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <button type="submit" class="btn-submit">Submit</button>
                     </form>
-                    
-                    <div class="success-message" id="successMessage">
-                        <p>✅ Thank you! Your message has been sent successfully. We'll get back to you within 2 hours.</p>
+                  
+                    <div class="success-message" id="successMessage" style="display:none;">
+                      <p>✅ Thank you! Your message has been sent successfully. We'll get back to you within 2 hours.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+                  </div>
+                  
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
