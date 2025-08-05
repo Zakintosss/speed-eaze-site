@@ -667,9 +667,10 @@ function gtag_report_conversion(url) {
                              contactForm.style.display = 'none';
                              successMessage.style.display = 'block';
                    
-                             // Automatically redirect to Calendly after 2 seconds
+                             // Track Google Analytics conversion and redirect to Calendly
                              setTimeout(() => {
-                               window.location.href = 'https://calendly.com/hachhouchzakaria/30min';
+                               // Track conversion and redirect to Calendly
+                               gtag_report_conversion('https://calendly.com/axento-meeting/new-meeting');
                              }, 2000);
                           } else {
                             // Error - show error message
@@ -687,4 +688,5 @@ function gtag_report_conversion(url) {
                     });
                   </script>
                   
+
 
