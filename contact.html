@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SpeedEaze</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: white;
+            background: linear-gradient(135deg, #000000 0%, #001a00 50%, #000000 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #000000;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        .nav-menu a.active {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(45deg, #ffff00, #00ff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ff6b35;
+        }
+
+        .contact-info p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #e55a2b);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: #cccccc;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ff6b35;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999999;
+        }
+
+        .form-group select option {
+            background: #000000;
+            color: white;
+            padding: 10px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #ff6b35, #e55a2b);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Checkbox Styles */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #ff6b35;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            font-size: 0.9rem;
+            color: #cccccc;
+            cursor: pointer;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #000000;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-bottom p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design for Footer */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info h2,
+            .contact-form h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">SpeedEaze</a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-exact.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="contact-btn active">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>⭐ Get in Touch with <span class="highlight">Us</span></h1>
+                <p>Need support, have questions, or just curious how AI can save you 15+ hours/week? Reach out, we're here to help you grow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Contact Us</h2>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>admin@Speedeaze.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Dubai, UAE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Get Started</h2>
+                    <form id="contactForm">
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for="firstName">First Name</label>
+                          <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="lastName">Last Name</label>
+                          <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+                        </div>
+                      </div>
+                  
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for="companyName">Company Name</label>
+                          <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name" />
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email address</label>
+                          <input type="email" id="email" name="email" placeholder="You@Gmail.Com" required />
+                        </div>
+                      </div>
+                  
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for="serviceRequired">Service required</label>
+                          <select id="serviceRequired" name="serviceRequired" required>
+                            <option value="">Select Your Service</option>
+                            <option value="starter-ai">Starter AI</option>
+                            <option value="growth-ai">Growth AI</option>
+                            <option value="scale-ai">Scale AI</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="projectBudget">Project budget</label>
+                          <select id="projectBudget" name="projectBudget" required>
+                            <option value="">Select Your Range</option>
+                            <option value="100-250">100-250 USD</option>
+                            <option value="250-500">250-500 USD</option>
+                            <option value="500-1000">500-1000 USD</option>
+                          </select>
+                        </div>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label for="message">Tell Us About you</label>
+                        <textarea id="message" name="message" rows="4" placeholder="How can we do this?" required></textarea>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label>Select Automations You Need</label>
+                        <div class="checkbox-group">
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="clientOnboarding" name="automations[]" value="client-onboarding" />
+                            <label for="clientOnboarding">Client Onboarding Automation</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="leadFollowUp" name="automations[]" value="lead-follow-up" />
+                            <label for="leadFollowUp">Lead Follow-Up Agent (Email/DM)</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="contentRepurposing" name="automations[]" value="content-repurposing" />
+                            <label for="contentRepurposing">Content Repurposing Bot (from notes/calls)</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="reminderSystem" name="automations[]" value="reminder-system" />
+                            <label for="reminderSystem">Reminder & Rescheduling System</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="faqBot" name="automations[]" value="faq-bot" />
+                            <label for="faqBot">FAQ Answer Bot (trained on your responses)</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="salesAssistant" name="automations[]" value="sales-assistant" />
+                            <label for="salesAssistant">Sales Assistant / Mini CRM</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="sessionSummary" name="automations[]" value="session-summary" />
+                            <label for="sessionSummary">Session Summary Generator</label>
+                          </div>
+                          <div class="checkbox-item">
+                            <input type="checkbox" id="multiChannel" name="automations[]" value="multi-channel" />
+                            <label for="multiChannel">Multi-Channel Auto DM / Email Funnel</label>
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <button type="submit" class="btn-submit">Submit</button>
+                    </form>
+                  
+                    <div class="success-message" id="successMessage" style="display:none;">
+                      <p>✅ Thank you! Your message has been sent successfully. Redirecting to scheduling page...</p>
+                    </div>
+                  </div>
+                  
+                  <script>
+                    // Cloudflare Worker URL for form submissions
+                    const WORKER_URL = 'https://form-submission-handler.hachhouchzakaria.workers.dev';
+                    
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const contactForm = document.getElementById('contactForm');
+                      const successMessage = document.getElementById('successMessage');
+                      const submitButton = contactForm.querySelector('.btn-submit');
+                  
+                      contactForm.addEventListener('submit', async function (e) {
+                        e.preventDefault();
+                  
+                        // Show loading state
+                        const originalText = submitButton.textContent;
+                        submitButton.textContent = 'Submitting...';
+                        submitButton.disabled = true;
+                  
+                        const formData = new FormData(contactForm);
+                        const data = {};
+                  
+                        // Convert FormData to JSON object
+                        formData.forEach((value, key) => {
+                          if (key.endsWith('[]')) {
+                            const trimmedKey = key.slice(0, -2);
+                            if (!data[trimmedKey]) data[trimmedKey] = [];
+                            data[trimmedKey].push(value);
+                          } else {
+                            data[key] = value;
+                          }
+                        });
+                  
+                        // Add selected automations
+                        const selectedAutomations = [];
+                        const automationCheckboxes = contactForm.querySelectorAll('input[name="automations[]"]:checked');
+                        automationCheckboxes.forEach(checkbox => {
+                          selectedAutomations.push(checkbox.value);
+                        });
+                        data.automations = selectedAutomations;
+                  
+                        try {
+                          const response = await fetch(WORKER_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data),
+                          });
+                  
+                          const result = await response.json();
+                  
+                          if (response.ok && result.success) {
+                            // Success - show success message
+                            contactForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+                  
+                            // Redirect to Calendly after 2 seconds
+                            setTimeout(() => {
+                              window.open('https://calendly.com/hachhouchzakaria/30min', '_blank');
+                            }, 2000);
+                          } else {
+                            // Error - show error message
+                            alert('Error: ' + (result.error || 'Submission failed.'));
+                          }
+                        } catch (error) {
+                          console.error('Form submission error:', error);
+                          alert('Network error. Please try again.');
+                        } finally {
+                          // Reset button state
+                          submitButton.textContent = originalText;
+                          submitButton.disabled = false;
+                        }
+                      });
+                    });
+                  </script>
+                  

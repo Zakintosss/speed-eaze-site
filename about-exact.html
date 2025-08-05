@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SpeedEaze</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: white;
+            background: #1a1a1a;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #ff6b35;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        /* Banner Section */
+        .banner {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .banner h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .banner h1 span {
+            color: #ff6b35;
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #cccccc;
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid #ff6b35;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Image Gallery Section */
+        .image-gallery {
+            padding: 60px 0;
+            background: #1a1a1a;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: #333;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            opacity: 0.1;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 80px 0;
+            background: #2d2d2d;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .experience h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .experience h2 span {
+            color: #ff6b35;
+        }
+
+        .experience-subtitle {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .experience-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .stat-description {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Growth Section */
+        .growth {
+            padding: 80px 0;
+            background: #1a1a1a;
+        }
+
+        .growth h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .growth h2 span {
+            color: #ff6b35;
+        }
+
+        .growth p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .jobs-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ff6b35;
+            transform: translateX(-50%);
+        }
+
+        .job-card {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .job-card:nth-child(odd) {
+            margin-right: 50%;
+            padding-right: 50px;
+        }
+
+        .job-card:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 50px;
+        }
+
+        .job-type {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .job-type span {
+            background: #ff6b35;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .job-description {
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .job-apply {
+            background: #ff6b35;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #2d2d2d;
+        }
+
+        .faq h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            line-height: 1.2;
+        }
+
+        .faq h2 span {
+            color: #ff6b35;
+        }
+
+        .faq-item {
+            background: #1a1a1a;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: #2d2d2d;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #333;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #cccccc;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #cccccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .job-card:nth-child(odd),
+            .job-card:nth-child(even) {
+                margin: 0 0 30px 0;
+                padding: 30px;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">SpeedEaze</a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#" class="active">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="cta-button">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <h1>About <span>SpeedEaze</span></h1>
+            <p>At SpeedEaze, we believe coaches deserve more time, less stress, and a smarter way to grow. Our mission is to help coaches automate their most time-consuming tasks using AI—without needing tech skills.</p>
+            <div class="banner-buttons">
+                <a href="contact.html" class="btn-primary">Get Started</a>
+                <a href="#" class="btn-secondary">How AI Works for Coaches</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="image-gallery">
+        <div class="container">
+            <div class="gallery-container">
+                <div class="gallery-image">
+                    <img src="684fe8b85cdd55898bed9762_Rectangle 153.png" alt="Professional office environment" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+                <div class="gallery-image">
+                    <img src="684fe8b85e3337b9cf4dce4e_Rectangle 152.png" alt="Professional meeting and collaboration" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container">
+            <div class="experience-header">
+                <div>
+                    <h2>Creating <span>Seamless</span> Coaching <span>Automations</span></h2>
+                    <p class="experience-subtitle">Helping Coaches Reclaim Their Time and Focus</p>
+                </div>
+                <a href="contact.html" class="experience-btn">Get Started</a>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Coaches Served</div>
+                    <div class="stat-description">Every coach's unique automation playbook.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">65-70%</div>
+                    <div class="stat-label">Tasks Automated</div>
+                    <div class="stat-description">We handle what slows coaches down—so they can do what they love.</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">180K</div>
+                    <div class="stat-label">Minutes Saved</div>
+                    <div class="stat-description">Every system delivers results, and scales with you.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Section -->
+    <section class="growth">
+        <div class="container">
+            <h2>We are building a team to <span>help</span> <span>coaches</span> <span>grow with AI</span></h2>
+            <p>Our mission goes beyond service—we're here to support your progress at every stage. From flexible solutions to reliable support, your success is our top priority.</p>
+            
+            <div class="jobs-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="job-card">
+                    <div class="job-type">
+                        <span>Remote Only</span>
+                        <span>Full Time</span>
+                    </div>
+                    <h3 class="job-title">Automation Specialist</h3>
+                    <p class="job-description">Helps plan, build, and test AI automation workflows for business coaches. You'll turn their pain points into working systems.</p>
+                    <a href="contact.html" class="job-apply">Apply Now</a>
+                </div>
+                
+                <div class="job-card">
+                    <div class="job-type">
+                        <span>Remote Only</span>
+                        <span>Full Time</span>
+                    </div>
+                    <h3 class="job-title">Client Success Coordinator</h3>
+                    <p class="job-description">Ensures every coach gets full value from their automation. You'll manage, train, and support them post-launch.</p>
+                    <a href="contact.html" class="job-apply">Apply Now</a>
+                </div>
+                
+                <div class="job-card">
+                    <div class="job-type">
+                        <span>Remote Only</span>
+                        <span>Full Time</span>
+                    </div>
+                    <h3 class="job-title">Workflow Designer</h3>
+                    <p class="job-description">Designs the logic, flow, and decision paths that power our custom automations. No-code experience a plus.</p>
+                    <a href="contact.html" class="job-apply">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently <span>asked questions</span></h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How fast can I get my AI system live?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Your first AI automation is usually live within 7–10 days after we gather your info. We build, test, and launch it—all done-for-you.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Do I need tech skills to use this?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Not at all. You don't touch a single tool, we build and manage everything for you. If you can use email, you're good to go.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do I manage or update my automation later?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    We'll handle updates for you. If anything needs fixing or changing, just message us and we'll make it happen. You also get full visibility via your dashboard.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Are there any hidden costs?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    No surprises. You only pay the setup price you see. Ongoing maintenance fees are explained clearly after delivery (optional).
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Is my client data safe?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. We use secure platforms (Zapier, Make, OpenAI, etc.) and never store your data outside your tools unless you ask us to.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SpeedEaze</h3>
+                    <p>SpeedEaze offers AI automation solutions designed to help coaches save time and scale their businesses, without the tech complexity.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Main Pages</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>More Resources</h3>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                                                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                         <li><a href="terms.html">Terms</a></li>
+                        <li><a href="#">404</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 SpeedEaze</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all FAQ answers
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+                answer.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html> 
