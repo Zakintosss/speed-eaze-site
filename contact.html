@@ -33,6 +33,7 @@ function gtag_report_conversion(url) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - SpeedEaze</title>
+    <link rel="stylesheet" href="common-styles.css">
     <style>
         * {
             margin: 0;
@@ -54,71 +55,11 @@ function gtag_report_conversion(url) {
             padding: 0 20px;
         }
 
-        /* Header Styles */
-        .header {
-            background: #000000;
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ff6b35;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #ff6b35;
-        }
-
-        .nav-menu a.active {
-            color: #ff6b35;
-            font-weight: 600;
-        }
-
-        .contact-btn {
-            background: #ff6b35;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background: #e55a2b;
-            transform: translateY(-2px);
-        }
+        /* Header and CTA styles will be handled via common-styles.css */
 
         /* Hero Section */
         .hero-section {
-            padding: 160px 0 100px;
+            padding: 100px 0 100px;
             text-align: center;
         }
 
@@ -141,6 +82,90 @@ function gtag_report_conversion(url) {
             color: #cccccc;
             max-width: 600px;
             margin: 0 auto 60px;
+        }
+
+        /* Calendly Section */
+        .calendly-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .calendly-content {
+            text-align: center;
+        }
+
+        .calendly-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .calendly-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+
+        .calendly-embed {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+        }
+
+        .testimonials-content {
+            text-align: center;
+        }
+
+        .testimonials-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #ff6b35;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: left;
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author strong {
+            color: #ff6b35;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author span {
+            color: #999999;
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
@@ -314,6 +339,49 @@ function gtag_report_conversion(url) {
             display: block;
         }
 
+        /* Advanced Options Styles */
+        .advanced-options {
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        .advanced-toggle {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #cccccc;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .advanced-toggle:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .advanced-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .advanced-fields {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
         /* Checkbox Styles */
         .checkbox-group {
             display: grid;
@@ -458,6 +526,23 @@ function gtag_report_conversion(url) {
             .contact-form h2 {
                 font-size: 2rem;
             }
+
+            .calendly-content h2 {
+                font-size: 2rem;
+            }
+
+            .testimonials-content h2 {
+                font-size: 2rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .calendly-embed {
+                height: 600px;
+            }
         }
     </style>
 </head>
@@ -474,7 +559,7 @@ function gtag_report_conversion(url) {
                         <li><a href="features.html">Features</a></li>
                     </ul>
                 </nav>
-                <a href="contact.html" class="contact-btn active">Contact Us</a>
+                <a href="contact.html" class="contact-btn active">Book a Free Strategy Call</a>
             </div>
         </div>
     </header>
@@ -485,6 +570,48 @@ function gtag_report_conversion(url) {
             <div class="hero-content">
                 <h1>⭐ Get in Touch with <span class="highlight">Us</span></h1>
                 <p>Need support, have questions, or just curious how AI can save you 15+ hours/week? Reach out, we're here to help you grow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendly Section -->
+    <section class="calendly-section">
+        <div class="container">
+            <div class="calendly-content">
+                <h2>📅 Schedule Your Free Strategy Call</h2>
+                <p>Book a 30-minute call to discuss how AI can save you 15+ hours per week</p>
+                <div class="calendly-embed">
+                    <iframe src="https://calendly.com/axento-meeting/new-meeting" width="100%" height="700" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-content">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"SpeedEaze transformed my coaching business. I went from spending 20+ hours on admin to just 2 hours per week. The AI automation is incredible!"</p>
+                            <div class="testimonial-author">
+                                <strong>Sarah Johnson</strong>
+                                <span>Life Coach</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The lead follow-up automation alone has increased my conversion rate by 40%. I'm closing more clients without lifting a finger."</p>
+                            <div class="testimonial-author">
+                                <strong>Mike Chen</strong>
+                                <span>Business Consultant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -516,97 +643,106 @@ function gtag_report_conversion(url) {
                     </div>
                 </div>
 
-                <div class="contact-form">
+                                <div class="contact-form">
                     <h2>Get Started</h2>
                     <form id="contactForm">
-                      <div class="form-row">
-                        <div class="form-group">
-                          <label for="firstName">First Name</label>
-                          <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
-                        </div>
-                        <div class="form-group">
-                          <label for="lastName">Last Name</label>
-                          <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
-                        </div>
-                      </div>
-                  
-                      <div class="form-row">
-                        <div class="form-group">
-                          <label for="companyName">Company Name</label>
-                          <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name" />
-                        </div>
-                        <div class="form-group">
-                          <label for="email">Email address</label>
-                          <input type="email" id="email" name="email" placeholder="You@Gmail.Com" required />
-                        </div>
-                      </div>
-                  
-                      <div class="form-row">
-                        <div class="form-group">
-                          <label for="serviceRequired">Service required</label>
-                          <select id="serviceRequired" name="serviceRequired" required>
-                            <option value="">Select Your Service</option>
-                            <option value="starter-ai">Starter AI</option>
-                            <option value="growth-ai">Growth AI</option>
-                            <option value="scale-ai">Scale AI</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="projectBudget">Project budget</label>
-                          <select id="projectBudget" name="projectBudget" required>
-                            <option value="">Select Your Range</option>
-                            <option value="100-250">100-250 USD</option>
-                            <option value="250-500">250-500 USD</option>
-                            <option value="500-1000">500-1000 USD</option>
-                          </select>
-                        </div>
+                      <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
                       </div>
                   
                       <div class="form-group">
-                        <label for="message">Tell Us About you</label>
-                        <textarea id="message" name="message" rows="4" placeholder="How can we do this?" required></textarea>
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="You@Gmail.Com" required />
                       </div>
                   
                       <div class="form-group">
-                        <label>Select Automations You Need</label>
-                        <div class="checkbox-group">
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="clientOnboarding" name="automations[]" value="client-onboarding" />
-                            <label for="clientOnboarding">Client Onboarding Automation</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="leadFollowUp" name="automations[]" value="lead-follow-up" />
-                            <label for="leadFollowUp">Lead Follow-Up Agent (Email/DM)</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="contentRepurposing" name="automations[]" value="content-repurposing" />
-                            <label for="contentRepurposing">Content Repurposing Bot (from notes/calls)</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="reminderSystem" name="automations[]" value="reminder-system" />
-                            <label for="reminderSystem">Reminder & Rescheduling System</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="faqBot" name="automations[]" value="faq-bot" />
-                            <label for="faqBot">FAQ Answer Bot (trained on your responses)</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="salesAssistant" name="automations[]" value="sales-assistant" />
-                            <label for="salesAssistant">Sales Assistant / Mini CRM</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="sessionSummary" name="automations[]" value="session-summary" />
-                            <label for="sessionSummary">Session Summary Generator</label>
-                          </div>
-                          <div class="checkbox-item">
-                            <input type="checkbox" id="multiChannel" name="automations[]" value="multi-channel" />
-                            <label for="multiChannel">Multi-Channel Auto DM / Email Funnel</label>
-                          </div>
-                        </div>
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your coaching business and how we can help..." required></textarea>
                       </div>
                   
                       <button type="submit" class="btn-submit">Submit</button>
                     </form>
+
+                    <!-- Advanced Options Section -->
+                    <div class="advanced-options">
+                        <button type="button" class="advanced-toggle" onclick="toggleAdvanced()">
+                            <span class="toggle-text">Show Advanced Options</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        
+                        <div class="advanced-fields" id="advancedFields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Smith" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="companyName">Company Name</label>
+                                    <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="serviceRequired">Service Required</label>
+                                    <select id="serviceRequired" name="serviceRequired">
+                                        <option value="">Select Your Service</option>
+                                        <option value="starter-ai">Starter AI</option>
+                                        <option value="growth-ai">Growth AI</option>
+                                        <option value="scale-ai">Scale AI</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectBudget">Project Budget</label>
+                                    <select id="projectBudget" name="projectBudget">
+                                        <option value="">Select Your Range</option>
+                                        <option value="100-250">100-250 USD</option>
+                                        <option value="250-500">250-500 USD</option>
+                                        <option value="500-1000">500-1000 USD</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Select Automations You Need</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="clientOnboarding" name="automations[]" value="client-onboarding" />
+                                        <label for="clientOnboarding">Client Onboarding Automation</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="leadFollowUp" name="automations[]" value="lead-follow-up" />
+                                        <label for="leadFollowUp">Lead Follow-Up Agent (Email/DM)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="contentRepurposing" name="automations[]" value="content-repurposing" />
+                                        <label for="contentRepurposing">Content Repurposing Bot (from notes/calls)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="reminderSystem" name="automations[]" value="reminder-system" />
+                                        <label for="reminderSystem">Reminder & Rescheduling System</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="faqBot" name="automations[]" value="faq-bot" />
+                                        <label for="faqBot">FAQ Answer Bot (trained on your responses)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="salesAssistant" name="automations[]" value="sales-assistant" />
+                                        <label for="salesAssistant">Sales Assistant / Mini CRM</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="sessionSummary" name="automations[]" value="session-summary" />
+                                        <label for="sessionSummary">Session Summary Generator</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="multiChannel" name="automations[]" value="multi-channel" />
+                                        <label for="multiChannel">Multi-Channel Auto DM / Email Funnel</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                   
                                          <div class="success-message" id="successMessage" style="display:none;">
                        <p>✅ Thank you! Your message has been sent successfully.</p>
@@ -615,6 +751,24 @@ function gtag_report_conversion(url) {
                   </div>
                   
                   <script>
+                    // Toggle advanced options
+                    function toggleAdvanced() {
+                        const advancedFields = document.getElementById('advancedFields');
+                        const toggleButton = document.querySelector('.advanced-toggle');
+                        const toggleText = toggleButton.querySelector('.toggle-text');
+                        const toggleIcon = toggleButton.querySelector('.toggle-icon');
+                        
+                        if (advancedFields.style.display === 'none') {
+                            advancedFields.style.display = 'block';
+                            toggleText.textContent = 'Hide Advanced Options';
+                            toggleButton.classList.add('active');
+                        } else {
+                            advancedFields.style.display = 'none';
+                            toggleText.textContent = 'Show Advanced Options';
+                            toggleButton.classList.remove('active');
+                        }
+                    }
+                    
                     // Cloudflare Worker URL for form submissions
                     const WORKER_URL = 'https://form-submission-handler.hachhouchzakaria.workers.dev';
                     
@@ -687,6 +841,8 @@ function gtag_report_conversion(url) {
                       });
                     });
                   </script>
+                  
+                  <script src="common-scripts.js"></script>
                   
 
 
