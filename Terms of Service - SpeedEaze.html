@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://www.speedeaze.com/terms.html -->
+<html lang="en"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - SpeedEaze</title>
+    <link rel="stylesheet" href="./Features - SpeedEaze_files/common-styles.css">
+    <style>
+        /* Page-specific styles - using common design system variables */
+        body {
+            padding-top: 80px; /* Account for fixed header */
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .terms-header {
+            background: var(--color-bg-gradient);
+            color: var(--color-white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .terms-header h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .terms-header p {
+            font-size: var(--font-size-base);
+            opacity: 0.9;
+        }
+
+        .terms-content {
+            padding: 40px;
+            max-height: 70vh;
+            overflow-y: auto;
+            color: var(--color-white);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: var(--color-primary);
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: var(--color-white);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: var(--color-light-gray);
+        }
+
+        .section ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            color: var(--color-light-gray);
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .terms-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .terms-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .terms-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .terms-content {
+            padding: 40px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .terms-container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .terms-header {
+                padding: 30px 20px;
+            }
+
+            .terms-header h1 {
+                font-size: 2rem;
+            }
+
+            .terms-content {
+                padding: 30px 20px;
+                max-height: 60vh;
+            }
+
+            .close-btn {
+                top: 15px;
+                right: 15px;
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+            }
+        }
+
+        /* Scrollbar styling */
+        .terms-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terms-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .terms-content::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        .terms-content::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+    </style>
+<script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script><style>tcxspan{text-decoration: underline;cursor: pointer;}</style></head>
+<body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZGlzYWJsZWQiLCJDT05GSUciOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMi4wLjI2Iiwic2NvcmUiOjIwMDI2fV0=" __processed_5c22801c-8eea-4a7a-b861-d8d614627d5e__="true">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="./SpeedEaze - AI Assistants for Coaches.html" class="logo">SpeedEaze</a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="./SpeedEaze - AI Assistants for Coaches.html">Home</a></li>
+                        <li><a href="./About SpeedEaze.html">About</a></li>
+                        <li><a href="./Features - SpeedEaze.html">Features</a></li>
+                        <li><a href="./Contact Us - SpeedEaze.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="./Contact Us - SpeedEaze.html" class="contact-btn">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="terms-container" bis_skin_checked="1">
+        <button class="close-btn" onclick="window.close()">×</button>
+        
+        <div class="terms-header" bis_skin_checked="1">
+            <h1>Terms of Service</h1>
+            <p>Last Updated: January 2025</p>
+        </div>
+
+        <div class="terms-content" bis_skin_checked="1">
+            <div class="section" bis_skin_checked="1">
+                <p>This document constitutes the Terms of Service ("Terms") for the advertising automation and management services (the "Services") provided by Axento ("we," "us," or "our").</p>
+                
+                <p>These Terms govern the relationship between Axento and you, the client, and any entity you represent ("you" or "Client"). These Terms are a legally binding contract. Please read them carefully.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>1. Agreement to Terms</h2>
+                <p>By booking a meeting, requesting a proposal, or remitting payment for our Services, you are confirming that you have read, understood, and agree to be bound by these Terms.</p>
+                
+                <p>We will require that you affirmatively accept these Terms, for example, by checking a box on our meeting booking form stating "I have read and agree to the Terms of Service," before a meeting can be scheduled. This action constitutes a binding electronic signature.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>2. The Services</h2>
+                <p>We provide specialized advertising automation, campaign management, and related consulting services.</p>
+                
+                <p>The specific scope, deliverables, and nature of the Services to be provided to you will be defined in a separate proposal, statement of work, or invoice ("Service Proposal") that we will provide to you after our initial consultation. The Service Proposal will become part of this agreement once accepted by you.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>3. Fees and Payment</h2>
+                
+                <h3>A. Fees</h3>
+                <p>The fees for our Services ("Fees") will be detailed in the Service Proposal provided to you. All fees are quoted in United States Dollars unless otherwise specified. You agree to pay the Fees in full and in accordance with the payment terms specified in the Service Proposal.</p>
+                
+                <h3>B. Payment</h3>
+                <p>All payments must be made in advance of the service period. We will provide you with an invoice and a secure payment link via our third-party payment processor, Stripe. We will not commence any work or provide any Services until payment has been received in full.</p>
+                
+                <h3>C. No Refunds</h3>
+                <p>All Fees paid to Axento for the Services are non-refundable. When you remit payment, you are securing our time and resources for the agreed-upon service period. We do not offer refunds or credits for partially used service periods, or for any other reason once a payment has been made.</p>
+                
+                <h3>D. Price Changes</h3>
+                <p>We reserve the right to change the prices for our Services at any time. Any price changes will be communicated to you in a new Service Proposal and will only apply to future service periods.</p>
+                
+                <h3>E. Taxes</h3>
+                <p>You are solely responsible for paying any and all applicable sales, use, value-added, or other taxes, levies, or duties associated with your purchase of our Services.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>4. Client Responsibilities and Acceptable Use</h2>
+                
+                <h3>A. Client Responsibilities</h3>
+                <p>You are solely responsible for all materials you provide to us for use in connection with the Services, including but not limited to ad copy, images, videos, branding, and links to landing pages ("Client Content"). You are also responsible for ensuring your business practices, products, and services are compliant with all applicable laws and regulations.</p>
+                
+                <h3>B. Acceptable Use</h3>
+                <p>You agree not to use our Services to create, promote, or manage any advertisement or campaign that:</p>
+                <ul>
+                    <li>Is illegal, fraudulent, deceptive, or misleading.</li>
+                    <li>Infringes upon the intellectual property rights of any third party, including copyrights, trademarks, or patents.</li>
+                    <li>Contains defamatory, libelous, obscene, or hateful content.</li>
+                    <li>Promotes violence, discrimination, or harassment against any individual or group.</li>
+                    <li>Contains or introduces any viruses, malware, or other malicious code.</li>
+                    <li>Violates the advertising policies of the platforms on which the ads will run (e.g., Google Ads, Meta Ads, etc.).</li>
+                </ul>
+                
+                <p>We reserve the right to refuse to use any Client Content that we, in our sole discretion, deem to be in violation of these Terms or the policies of our advertising partners.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>5. Intellectual Property Rights</h2>
+                
+                <h3>A. Our Intellectual Property</h3>
+                <p>We retain all right, title, and interest in and to our own pre-existing materials, software, technology, strategies, methodologies, and know-how used to provide the Services, including all rights to the "Speed Eaze" and "Axento" brands. Nothing in these Terms grants you any ownership of our intellectual property.</p>
+                
+                <h3>B. Your Intellectual Property</h3>
+                <p>You retain all right, title, and interest in and to your Client Content. You hereby grant Axento a limited, non-exclusive, worldwide, royalty-free license to use, copy, display, and distribute your Client Content solely for the purpose of providing the Services to you as outlined in the applicable Service Proposal.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>6. Confidentiality</h2>
+                <p>Both parties agree to protect each other's "Confidential Information." Confidential Information includes, but is not limited to, the terms of the Service Proposal, business strategies, client lists, ad performance data, and any non-public information shared by one party with the other. The receiving party agrees not to disclose the disclosing party's Confidential Information to any third party without prior written consent, except as required by law.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>7. Disclaimer of Warranties and Limitation of Liability</h2>
+                
+                <h3>A. Disclaimer of Warranties</h3>
+                <p>THE SERVICES ARE PROVIDED "AS-IS" AND "AS-AVAILABLE." AXENTO EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING, WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT GUARANTEE ANY SPECIFIC RESULTS, SUCH AS A PARTICULAR RETURN ON AD SPEND (ROAS), NUMBER OF CLICKS, LEADS, OR CONVERSIONS. ALL ADVERTISING INVOLVES RISK, AND YOU ACKNOWLEDGE THAT YOU ARE RESPONSIBLE FOR YOUR OWN BUSINESS OUTCOMES.</p>
+                
+                <h3>B. Limitation of Liability</h3>
+                <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL AXENTO OR ITS DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU FOR ANY LOST PROFITS, LOST REVENUE, OR FOR ANY INDIRECT, CONSEQUENTIAL, INCIDENTAL, OR SPECIAL DAMAGES, WHETHER OR NOT WE WERE ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR MAXIMUM AGGREGATE LIABILITY TO YOU FOR ANY AND ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICES, WHETHER IN CONTRACT, TORT, OR OTHERWISE, SHALL BE LIMITED TO THE TOTAL AMOUNT OF FEES PAID BY YOU TO AXENTO IN THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>8. Term and Termination</h2>
+                
+                <h3>A. Term</h3>
+                <p>This agreement begins on the date you first accept these Terms and continues as long as you are receiving Services from us.</p>
+                
+                <h3>B. Termination for Convenience</h3>
+                <p>Either party may terminate this agreement for any reason by providing the other party with thirty (30) days written notice.</p>
+                
+                <h3>C. Termination for Cause</h3>
+                <p>We may suspend or terminate your access to the Services and this agreement immediately and without prior notice if you fail to make a timely payment of any Fees owed; you breach any part of Section 4 (Client Responsibilities and Acceptable Use); or you breach any other material term of this agreement and fail to cure the breach within ten (10) days of receiving written notice from us.</p>
+                
+                <h3>D. Effect of Termination</h3>
+                <p>Upon termination of this agreement, you shall immediately pay any and all outstanding, unpaid Fees due for Services rendered. All sections of these Terms which by their nature should survive termination will survive, including, without limitation, intellectual property provisions, confidentiality obligations, warranty disclaimers, and limitations of liability.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>9. Governing Law and Dispute Resolution</h2>
+                <p>This agreement and any dispute arising out of or related to it shall be governed by and construed in accordance with the laws of the State of New York, United States, without regard to its conflict of law provisions.</p>
+                
+                <p>Any legal action or proceeding arising under these Terms will be brought exclusively in the federal or state courts located in Erie County, New York, and the parties hereby irrevocably consent to the personal jurisdiction and venue therein.</p>
+            </div>
+
+            <div class="section" bis_skin_checked="1">
+                <h2>10. General Provisions</h2>
+                
+                <h3>A. Entire Agreement</h3>
+                <p>These Terms, together with any Service Proposal provided by us, constitute the entire agreement between you and Axento concerning the Services and supersede all prior and contemporaneous agreements, proposals, or representations, written or oral.</p>
+                
+                <h3>B. Severability</h3>
+                <p>If any provision of these Terms is held by a court of competent jurisdiction to be invalid or unenforceable, that provision will be enforced to the maximum extent permissible and the other provisions of these Terms will remain in full force and effect.</p>
+                
+                <h3>C. Waiver</h3>
+                <p>Our failure to exercise or enforce any right or provision of these Terms will not constitute a waiver of such right or provision.</p>
+                
+                <h3>D. Assignment</h3>
+                <p>You may not assign or transfer your rights or obligations under these Terms without our prior written consent. We may assign our rights and obligations under these Terms without condition (for example, in connection with a merger, acquisition, or sale of all or substantially all of our assets).</p>
+                
+                <h3>E. Notices</h3>
+                <p>All notices or other communications required under these Terms shall be in writing and shall be deemed to have been duly given when delivered by email to the email address provided by each party to the other.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SpeedEaze</h3>
+                    <p>SpeedEaze offers AI automation solutions designed to help small businesses save time and cut costs, without the tech complexity.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Main Pages</h3>
+                    <ul>
+                        <li><a href="./SpeedEaze - AI Assistants for Coaches.html">Home</a></li>
+                        <li><a href="./About SpeedEaze.html">About</a></li>
+                        <li><a href="./Features - SpeedEaze.html">Features</a></li>
+                        <li><a href="./Contact Us - SpeedEaze.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="./Privacy Policy - SpeedEaze.html">Privacy Policy</a></li>
+                        <li><a href="./Terms of Service - SpeedEaze.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 SpeedEaze</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Close on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                window.close();
+            }
+        });
+
+        // Close on click outside
+        document.addEventListener('click', function(event) {
+            if (event.target === document.body) {
+                window.close();
+            }
+        });
+    </script>
+
+<iframe class="adsbox ads ad adsbox doubleclick ad-placement carbon-ads" src="./Terms of Service - SpeedEaze_files/html.html" style="position: absolute; visibility: hidden; z-index: -9999;">&nbsp;</iframe></body></html>

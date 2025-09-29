@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://www.speedeaze.com/about-exact.html -->
+<html lang="en"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About SpeedEaze</title>
+    <link rel="stylesheet" href="./About SpeedEaze_files/common-styles.css">
+    <style>
+        /* Page-specific styles - using common design system variables */
+        body {
+            padding-top: 80px; /* Account for fixed header */
+        }
+
+        /* Header and CTA styles will be handled via common-styles.css */
+
+        /* Banner Section */
+        .banner {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: var(--color-bg-gradient);
+        }
+
+        .banner h1 {
+            font-size: var(--font-size-5xl);
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .banner h1 span {
+            color: var(--color-primary);
+        }
+
+        .banner p {
+            font-size: var(--font-size-lg);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--color-light-gray);
+        }
+
+        .banner-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Button styles now handled by common-styles.css */
+
+        /* Image Gallery Section */
+        .image-gallery {
+            padding: 60px 0;
+            background: #1a1a1a;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: #333;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            opacity: 0.1;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 80px 0;
+            background: #2d2d2d;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .experience h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .experience h2 span {
+            color: #ff6b35;
+        }
+
+        .experience-subtitle {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .experience-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .stat-description {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Growth Section */
+        .growth {
+            padding: 80px 0;
+            background: #1a1a1a;
+        }
+
+        .growth h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .growth h2 span {
+            color: #ff6b35;
+        }
+
+        .growth p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .jobs-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ff6b35;
+            transform: translateX(-50%);
+        }
+
+        .job-card {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .job-card:nth-child(odd) {
+            margin-right: 50%;
+            padding-right: 50px;
+        }
+
+        .job-card:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 50px;
+        }
+
+        .job-type {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .job-type span {
+            background: #ff6b35;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .job-description {
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .job-apply {
+            background: #ff6b35;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #2d2d2d;
+        }
+
+        .faq h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            line-height: 1.2;
+        }
+
+        .faq h2 span {
+            color: #ff6b35;
+        }
+
+        .faq-item {
+            background: #1a1a1a;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: #2d2d2d;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #333;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #cccccc;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #cccccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .job-card:nth-child(odd),
+            .job-card:nth-child(even) {
+                margin: 0 0 30px 0;
+                padding: 30px;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+        }
+    </style>
+<script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script><style>tcxspan{text-decoration: underline;cursor: pointer;}</style></head>
+<body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZGlzYWJsZWQiLCJDT05GSUciOiJkaXNhYmxlZCJ9LCJ2ZXJzaW9uIjoiMi4wLjI2Iiwic2NvcmUiOjIwMDI2fV0=" __processed_d2f5d017-568c-465b-8499-73275d2e6945__="true">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="./SpeedEaze - AI Assistants for Coaches.html" class="logo">SpeedEaze</a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="./SpeedEaze - AI Assistants for Coaches.html">Home</a></li>
+                        <li><a href="./About SpeedEaze.html" class="active">About</a></li>
+                        <li><a href="./Features - SpeedEaze.html">Features</a></li>
+                        <li><a href="./Contact Us - SpeedEaze.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="./Contact Us - SpeedEaze.html" class="contact-btn">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container" bis_skin_checked="1">
+            <h1>About <span>SpeedEaze</span></h1>
+            <p>At SpeedEaze, we believe small business deserve more time, less stress, and a smarter way to grow. Our mission is to help small business automate their most time-consuming tasks using AI—without needing tech skills.</p>
+            <div class="banner-buttons" bis_skin_checked="1">
+                                    <a href="https://www.speedeaze.com/contact.html" class="btn-primary">Book a Free Strategy Call</a>
+                <a href="https://www.speedeaze.com/about-exact.html#" class="btn-secondary">How AI Works for Small Business</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="image-gallery">
+        <div class="container" bis_skin_checked="1">
+            <div class="gallery-container" bis_skin_checked="1">
+                <div class="gallery-image" bis_skin_checked="1">
+                    <img src="./About SpeedEaze_files/684fe8b85cdd55898bed9762_Rectangle 153.png" alt="Professional office environment" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+                <div class="gallery-image" bis_skin_checked="1">
+                    <img src="./About SpeedEaze_files/684fe8b85e3337b9cf4dce4e_Rectangle 152.png" alt="Professional meeting and collaboration" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container" bis_skin_checked="1">
+            <div class="experience-header" bis_skin_checked="1">
+                <div bis_skin_checked="1">
+                    <h2>Creating <span>Seamless</span> Small Business <span>Automations</span></h2>
+                    <p class="experience-subtitle">Helping Small Business Reclaim Their Time and Focus</p>
+                </div>
+                <a href="https://www.speedeaze.com/contact.html" class="experience-btn">Book a Free Strategy Call</a>
+            </div>
+            
+            <div class="stats-grid" bis_skin_checked="1">
+                <div class="stat-card" bis_skin_checked="1">
+                    <div class="stat-number" bis_skin_checked="1">50+</div>
+                    <div class="stat-label" bis_skin_checked="1">Small Business Served</div>
+                    <div class="stat-description" bis_skin_checked="1">Every small business's unique automation playbook.</div>
+                </div>
+                <div class="stat-card" bis_skin_checked="1">
+                    <div class="stat-number" bis_skin_checked="1">65-70%</div>
+                    <div class="stat-label" bis_skin_checked="1">Tasks Automated</div>
+                    <div class="stat-description" bis_skin_checked="1">We handle what slows small business down—so they can do what they love.</div>
+                </div>
+                <div class="stat-card" bis_skin_checked="1">
+                    <div class="stat-number" bis_skin_checked="1">180K</div>
+                    <div class="stat-label" bis_skin_checked="1">Minutes Saved</div>
+                    <div class="stat-description" bis_skin_checked="1">Every system delivers results, and scales with you.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Section -->
+    <section class="growth">
+        <div class="container" bis_skin_checked="1">
+            <h2>We are building a team to <span>help</span> <span>small business</span> <span>grow with AI</span></h2>
+            <p>Our mission goes beyond service—we're here to support your progress at every stage. From flexible solutions to reliable support, your success is our top priority.</p>
+            
+            <div class="jobs-timeline" bis_skin_checked="1">
+                <div class="timeline-line" bis_skin_checked="1"></div>
+                
+                <div class="job-card" bis_skin_checked="1">
+                    <div class="job-type" bis_skin_checked="1">
+                        <span>Remote Only</span>
+                        <span>Full Time</span>
+                    </div>
+                    <h3 class="job-title">Automation Specialist</h3>
+                    <p class="job-description">Helps plan, build, and test AI automation workflows for business small business. You'll turn their pain points into working systems.</p>
+                    <a href="https://www.speedeaze.com/contact.html" class="job-apply">Apply Now</a>
+                </div>
+                
+                <div class="job-card" bis_skin_checked="1">
+                    <div class="job-type" bis_skin_checked="1">
+                        <span>Remote Only</span>
+                        <span>Full Time</span>
+                    </div>
+                    <h3 class="job-title">Client Success Coordinator</h3>
+                    <p class="job-description">Ensures every small business gets full value from their automation. You'll manage, train, and support them post-launch.</p>
+                    <a href="https://www.speedeaze.com/contact.html" class="job-apply">Apply Now</a>
+                </div>
+                
+                <div class="job-card" bis_skin_checked="1">
+                    <div class="job-type" bis_skin_checked="1">
+                        <span>Remote Only</span>
+                        <span>Full Time</span>
+                    </div>
+                    <h3 class="job-title">Workflow Designer</h3>
+                    <p class="job-description">Designs the logic, flow, and decision paths that power our custom automations. No-code experience a plus.</p>
+                    <a href="https://www.speedeaze.com/contact.html" class="job-apply">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container" bis_skin_checked="1">
+            <h2>Frequently <span>asked questions</span></h2>
+            
+            <div class="faq-item" bis_skin_checked="1">
+                <div class="faq-question" onclick="toggleFAQ(this)" bis_skin_checked="1">
+                    How fast can I get my AI system live?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" bis_skin_checked="1">
+                    Your first AI automation is usually live within 7–10 days after we gather your info. We build, test, and launch it—all done-for-you.
+                </div>
+            </div>
+            
+            <div class="faq-item" bis_skin_checked="1">
+                <div class="faq-question" onclick="toggleFAQ(this)" bis_skin_checked="1">
+                    Do I need tech skills to use this?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" bis_skin_checked="1">
+                    Not at all. You don't touch a single tool, we build and manage everything for you. If you can use email, you're good to go.
+                </div>
+            </div>
+            
+            <div class="faq-item" bis_skin_checked="1">
+                <div class="faq-question" onclick="toggleFAQ(this)" bis_skin_checked="1">
+                    How do I manage or update my automation later?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" bis_skin_checked="1">
+                    We'll handle updates for you. If anything needs fixing or changing, just message us and we'll make it happen. You also get full visibility via your dashboard.
+                </div>
+            </div>
+            
+            <div class="faq-item" bis_skin_checked="1">
+                <div class="faq-question" onclick="toggleFAQ(this)" bis_skin_checked="1">
+                    Are there any hidden costs?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" bis_skin_checked="1">
+                    No surprises. You only pay the setup price you see. Ongoing maintenance fees are explained clearly after delivery (optional).
+                </div>
+            </div>
+            
+            <div class="faq-item" bis_skin_checked="1">
+                <div class="faq-question" onclick="toggleFAQ(this)" bis_skin_checked="1">
+                    Is my client data safe?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer" bis_skin_checked="1">
+                    Yes. We use secure platforms (Zapier, Make, OpenAI, etc.) and never store your data outside your tools unless you ask us to.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SpeedEaze</h3>
+                    <p>SpeedEaze offers AI automation solutions designed to help small businesses save time and cut costs, without the tech complexity.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Main Pages</h3>
+                    <ul>
+                        <li><a href="./SpeedEaze - AI Assistants for Coaches.html">Home</a></li>
+                        <li><a href="./About SpeedEaze.html">About</a></li>
+                        <li><a href="./Features - SpeedEaze.html">Features</a></li>
+                        <li><a href="./Contact Us - SpeedEaze.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="./Privacy Policy - SpeedEaze.html">Privacy Policy</a></li>
+                        <li><a href="./Terms of Service - SpeedEaze.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 SpeedEaze</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all FAQ answers
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+                answer.classList.add('active');
+            }
+        }
+    </script>
+    <script src="./About SpeedEaze_files/common-scripts.js.téléchargement"></script>
+    
+ <a href="https://www.speedeaze.com/contact.html" class="floating-cta" aria-label="Book a Free Strategy Call">Book a Free Strategy Call</a></body></html>
