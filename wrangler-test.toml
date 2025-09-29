@@ -1,9 +1,0 @@
-# Test Cloudflare Worker configuration
-name = "kv-test-worker"
-main = "test-worker.js"
-compatibility_date = "2024-01-01"
-
-# KV namespace binding
-[[kv_namespaces]]
-binding = "TODO_LIST"
-id = "37f5e8a3942c40afa2860d23dd89328f" 
